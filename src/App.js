@@ -1,15 +1,15 @@
 import './App.css';
 import movieData from './mock-data';
 import Nav from './components/Nav/Nav.js';
-// import Hero from './components/Hero';
-// import Movies from './components/Movies';
+import Hero from './components/Hero/Hero.js';
+// import Movies from './components/Movies/Movies.js';
 
 function App() {
   return (
     <div>
       <Nav />
       <main>
-        {/* <Hero /> */}
+        <Hero />
         {/* <Movies /> */}
       </main>
     </div>
