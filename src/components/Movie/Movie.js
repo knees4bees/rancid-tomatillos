@@ -1,9 +1,10 @@
-import react from 'react';
+import React from 'react';
+import './Movie.css';
 
-const Movie = (props) => {
+const Movie = ({ poster }) => {
   return (
     <div className='movie'>
-      <img src={this.props.backdrop_path} />
+      <img src={poster} />
     </div>
   )
 }

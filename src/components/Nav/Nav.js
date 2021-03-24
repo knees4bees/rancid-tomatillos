@@ -1,6 +1,7 @@
 import React from 'react';
 import homeIcon from '../../home.svg';
 import searchIcon from '../../search.svg';
+import './Nav.css';
 
 const Nav = () => {
   return (

@@ -1,11 +1,12 @@
-import react from 'react';
+import React from 'react';
 import Movie from '../Movie/Movie.js';
+import './Movies.css';
 
 const Movies = ({movies}) => {
   const movieCards = movies.map(movie => {
-    <Movie 
-      // need to pass some props here
-    />
+    return (<Movie 
+      poster={movie.poster_path} 
+    />);
   });
 
   return (
