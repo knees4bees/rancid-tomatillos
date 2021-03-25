@@ -1,15 +1,17 @@
+/* For the carousel buttons */
+
 .slick-prev {
-    left: 25px;
-    z-index: 5;
+  left: 25px;
+  z-index: 5;
 }
 
 [dir='rtl'] .slick-prev {
-    right: 25px;
+  right: 25px;
 }
 
 .slick-prev:before {
-    color: #fff;
-    font-size: 40px;
+  color: #fff;
+  font-size: 40px;
 }
 
 .slick-next {
@@ -31,14 +33,15 @@
 
 .slick-dots li button:before {
   opacity: .50;
-    color: #fff;
+  color: #fff;
 }
 
-.slick-dots li.slick-active button:before
-{
-    opacity: 1;
-    color: #fff;
+.slick-dots li.slick-active button:before {
+  opacity: 1;
+  color: #fff;
 }
+
+/* For the carousel component */
 
 .carousel {
   margin-bottom:20px;
