@@ -1,11 +1,11 @@
 import React from 'react';
 import './Hero.css';
 
-const Hero = () => {
+const Hero = ({title, image}) => {
   return (
     <div className='hero'>
-      <img className='hero__img' src='https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg' />
-      <p className='hero__title'>Money Plane</p>
+      <img className='hero__img' src={image} />
+      <p className='hero__title'>{title}</p>
     </div>
   )
 }

@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import "/Users/stevenmancine/turing/mod3/projects/rancid-tomatillos/node_modules/slick-carousel/slick/slick.css"; 
-import "/Users/stevenmancine/turing/mod3/projects/rancid-tomatillos/node_modules/slick-carousel/slick/slick-theme.css";
+import "../../../node_modules/slick-carousel/slick/slick.css"; 
+import "../../../node_modules/slick-carousel/slick/slick-theme.css";
 import './Carousel.css'
 import Hero from '../Hero/Hero.js'
 
 const Carousel = ({movies}) => {
-  const five = movies.filter((movie, index) => index < 5)
+  const five = movies.filter((movie, index) => index < 5);
+  const featuredFilm = five.map(movie => <Hero title={movie.title} image={movie.backdrop_path} />)
   console.log(five)
     const settings = {
       dots: true,
@@ -14,14 +15,13 @@ const Carousel = ({movies}) => {
       speed: 2000,
       slidesToShow: 1,
       slidesToScroll: 1,
-      autoplaySpeed: 5000,
+      autoplaySpeed: 7000,
       autoplay: true
     };
     return (
-      <div>
+      <div className='carousel'>
         <Slider {...settings}>        
-            <Hero />        
-            <Hero />        
+            {featuredFilm}       
         </Slider>
       </div>
     );
