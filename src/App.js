@@ -4,6 +4,7 @@ import movieData from './mock-data';
 import Nav from './components/Nav/Nav.js';
 import Hero from './components/Hero/Hero.js';
 import Movies from './components/Movies/Movies.js';
+import Carousel from './components/Carousel/Carousel.js'
 
 class App extends Component {
   constructor() {
@@ -18,7 +19,7 @@ class App extends Component {
       <div>
         <Nav />
         <main>
-          <Hero />
+          <Carousel />
           <Movies movies={this.state.movies}/>
         </main>
       </div>

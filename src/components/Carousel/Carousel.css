@@ -1,0 +1,52 @@
+.slick-prev {
+    left: 25px;
+    z-index: 5;
+}
+
+[dir='rtl'] .slick-prev {
+    right: 25px;
+}
+
+.slick-prev:before {
+    color: #fff;
+    font-size: 40px;
+}
+
+.slick-next {
+    right: 40px;
+}
+
+[dir='rtl'] .slick-next {
+    left: 40px;
+}
+
+.slick-next:before {
+    color: #fff;
+    font-size: 40px;
+}
+
+.slick-dots
+{
+    bottom: 50px;
+
+    display: block;
+
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+
+    text-align: center;
+}
+
+.slick-dots li button:before {
+  opacity: .25;
+    color: #fff;
+}
+
+.slick-dots li.slick-active button:before
+{
+    opacity: .75;
+    color: #fff;
+}
