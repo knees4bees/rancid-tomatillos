@@ -1,7 +1,11 @@
-.movie {
-  height: 300px,
-}
 
 .movie__poster {
   height: 300px;
+  transition: all .3s ease-in-out;
+  transition-delay: .2s
+}
+
+.movie__poster:hover {
+  cursor: pointer;
+  transform: scale(1.2)
 }

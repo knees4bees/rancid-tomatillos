@@ -1,6 +1,7 @@
 .hero {
   position: relative;
-  overflow: hidden
+  overflow: hidden;
+  margin-bottom:20px;
 }
 
 .hero::after{
