@@ -5,8 +5,9 @@ import "/Users/stevenmancine/turing/mod3/projects/rancid-tomatillos/node_modules
 import './Carousel.css'
 import Hero from '../Hero/Hero.js'
 
-class Carousel extends Component {
-  render() {
+const Carousel = ({movies}) => {
+  const five = movies.filter((movie, index) => index < 5)
+  console.log(five)
     const settings = {
       dots: true,
       infinite: true,
@@ -24,7 +25,7 @@ class Carousel extends Component {
         </Slider>
       </div>
     );
-  }
+  
 }
 
 export default Carousel;

@@ -19,8 +19,8 @@ class App extends Component {
       <div>
         <Nav />
         <main>
-          <Carousel />
-          <Movies movies={this.state.movies}/>
+          <Carousel movies={this.state.movies} />
+          <Movies movies={this.state.movies} />
         </main>
       </div>
     );
