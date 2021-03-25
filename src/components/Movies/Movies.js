@@ -6,6 +6,8 @@ const Movies = ({movies}) => {
   const movieCards = movies.map(movie => {
     return (<Movie 
       poster={movie.poster_path} 
+      id={movie.id}
+      key={movie.id}
     />);
   });
 
