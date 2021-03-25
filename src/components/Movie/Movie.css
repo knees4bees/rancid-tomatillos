@@ -1,7 +1,21 @@
 .movie {
-  height: 300px,
+  padding:1px;
+  background: linear-gradient(to bottom right, rgba(245, 16, 234, 0.726), rgba(16, 153, 245, 0.726));
+  display:flex;
+  align-items: center;
+  transition: all .3s ease-in-out;
+  transition-delay: .2s;
+  box-shadow: 15px 15px 40px rgba(245, 16, 234, 0.2), 
+    -15px -15px 40px rgba(16, 153, 245, 0.2);
+  border-radius: 3px;
+}
+
+.movie:hover {
+  cursor: pointer;
+  transform: scale(1.2);
 }
 
 .movie__poster {
   height: 300px;
+  border-radius: 3px;
 }

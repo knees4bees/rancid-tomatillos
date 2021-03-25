@@ -1,0 +1,30 @@
+.hero {
+  position: relative;
+  /* overflow: hidden; */
+  margin-bottom:20px;
+  box-shadow: 0px 15px 40px rgba(245, 16, 234, 0.2);
+}
+
+.hero::after{
+  position: absolute;
+  content: '';
+  top: -3px;
+  left: 0;
+  height:100%;
+  width: 100%;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.397) 30%, rgba(146, 146, 146, 0.267) 100%);
+}
+
+.hero__img {
+  width:100%;
+}
+
+.hero__title {
+  position:absolute;
+  margin: 40px;
+  bottom:0;
+  left:0;
+  color: #fff;
+  font-size: 10vw;
+  z-index: 5;
+}

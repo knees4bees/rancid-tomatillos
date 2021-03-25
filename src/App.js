@@ -6,12 +6,12 @@ import Hero from './components/Hero/Hero.js';
 import Movies from './components/Movies/Movies.js';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       movies: movieData.movies,
     }
-  }
+  } 
 
   render() {
     return (

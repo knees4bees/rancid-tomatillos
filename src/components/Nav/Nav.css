@@ -1,0 +1,25 @@
+.nav-bar {
+  position:absolute;
+  width: 100%;
+  height: 75px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.438)
+}
+.nav-bar__home {
+  margin-left: 20px;
+  height: 35px;
+}
+
+.nav-bar__search {
+  margin-right: 20px;
+  height: 35px;
+}
+
+.nav-bar__header {
+  font-size: 40px;
+  font-family: 'Pacifico', cursive;
+  height: fit-content;
+}

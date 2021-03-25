@@ -1,6 +1,9 @@
 .movies-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-column-gap: 30px;
+  grid-row-gap:80px;
   justify-items: center;
+  padding: 30px 60px;
 };
 
