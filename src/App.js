@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './normalize.css'
 import './App.css';
 import movieData from './mock-data';
 import Nav from './components/Nav/Nav.js';
