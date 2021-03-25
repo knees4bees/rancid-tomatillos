@@ -6,17 +6,28 @@ import './Carousel.css'
 import Hero from '../Hero/Hero.js'
 
 const Carousel = ({movies}) => {
-  const featuredFilm = movies.reduce((features, movie, index) => {
-    if(index < 5) {
-      features.push(<Hero 
+  // const featuredFilm = movies.reduce((features, movie, index) => {
+  //   if(index < 5) {
+  //     features.push(<Hero 
+  //       title={movie.title} 
+  //       image={movie.backdrop_path} 
+  //       key={movie.id}
+  //       id={movie.id}
+  //     />)
+  //   }
+  //   return features
+  // },[]);
+
+  const featuredFilms = movies.slice(0, 5).map(movie => {
+    return (
+      <Hero 
         title={movie.title} 
         image={movie.backdrop_path} 
         key={movie.id}
         id={movie.id}
-      />)
-    }
-    return features
-  },[]);
+      />
+    )
+  })
 
   const settings = {
     dots: true,
@@ -31,7 +42,7 @@ const Carousel = ({movies}) => {
   return (
     <div className='carousel'>
       <Slider {...settings}>        
-          {featuredFilm}       
+          {featuredFilms}       
       </Slider>
     </div>
   );
