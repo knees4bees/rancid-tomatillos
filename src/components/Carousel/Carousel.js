@@ -6,7 +6,7 @@ import './Carousel.css'
 import Hero from '../Hero/Hero.js'
 
 const Carousel = ({movies}) => {
-  const featuredFilms = movies.slice(0, 5).map(movie => {
+  const featuredFilms = movies.slice(10, 15).map(movie => {
     return (
       <Hero 
         title={movie.title} 
@@ -23,8 +23,8 @@ const Carousel = ({movies}) => {
     speed: 2000,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplaySpeed: 7000,
-    autoplay: true
+    // autoplaySpeed: 7000,
+    // autoplay: true
   };
 
   return (
