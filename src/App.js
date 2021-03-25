@@ -11,17 +11,30 @@ class App extends Component {
     super();
     this.state = {
       movies: movieData.movies,
+      selectedMovie: 0,
     }
   } 
+
+  displayMovieDetail = (id) => {
+    console.log(id);
+    this.setState({ selectedMovie: id })
+  }
 
   render() {
     return (
       <div>
         <Nav />
-        <main>
-          <Carousel movies={this.state.movies} />
-          <Movies movies={this.state.movies} />
-        </main>
+        {!this.state.selectedMovie && 
+          <main className='home-page'>
+            <Carousel movies={this.state.movies} displayMovieDetail={this.displayMovieDetail}/>
+            <Movies movies={this.state.movies} displayMovieDetail={this.displayMovieDetail}/>
+          </main>
+        }
+        {this.state.selectedMovie && 
+          <main className='detail-page'>
+            {/* <MovieDetail id={this.state.selectedMovie}/> */}
+          </main>
+        }
       </div>
     );
   }
