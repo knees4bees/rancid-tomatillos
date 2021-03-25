@@ -1,8 +1,10 @@
 .hero {
   position: relative;
-  /* overflow: hidden; */
-  /* margin-bottom:20px; */
-  /* box-shadow: 0px 15px 40px rgba(245, 16, 234, 0.2); */
+  /* height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden */
 }
 
 .hero::after{
@@ -16,7 +18,10 @@
 }
 
 .hero__img {
-  width:100%;
+  width: 100%;
+  /* flex-shrink: 0;
+  min-width:100%; 
+  min-height: 100%; */
 }
 
 .hero__title {
