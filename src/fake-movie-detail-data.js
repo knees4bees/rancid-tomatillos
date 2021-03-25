@@ -1,4 +1,4 @@
-{
+const fakeMovieDetailData = {
   "movie": {
     id: 694919, 
     title: "Fake Movie Title", 
@@ -14,3 +14,5 @@
     tagline: "It's a movie!" 
   }
 }
+
+export default fakeMovieDetailData;

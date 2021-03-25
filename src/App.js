@@ -4,35 +4,40 @@ import movieData from './mock-data';
 import Nav from './components/Nav/Nav.js';
 import Hero from './components/Hero/Hero.js';
 import Movies from './components/Movies/Movies.js';
-import Carousel from './components/Carousel/Carousel.js'
-
+import Carousel from './components/Carousel/Carousel.js';
+import fakeMovieDetailData from './fake-movie-detail-data.js';
+import MovieDetail from './components/MovieDetail/MovieDetail.js';
 class App extends Component {
   constructor() {
     super();
     this.state = {
       movies: movieData.movies,
-      selectedMovie: 0,
+      // selectedMovieDetails: fakeMovieDetailData.movie,
+      selectedMovieDetails: {},
+      // selectedMovie: 0,
     }
   } 
 
   displayMovieDetail = (id) => {
     console.log(id);
-    this.setState({ selectedMovie: id })
+    // fetch(id) 
+    // ... returns detail data
+    this.setState({ selectedMovieDetails: fakeMovieDetailData.movie })
   }
 
   render() {
     return (
       <div>
         <Nav />
-        {!this.state.selectedMovie && 
+        {!this.state.selectedMovieDetails.id && 
           <main className='home-page'>
             <Carousel movies={this.state.movies} displayMovieDetail={this.displayMovieDetail}/>
             <Movies movies={this.state.movies} displayMovieDetail={this.displayMovieDetail}/>
           </main>
         }
-        {this.state.selectedMovie && 
+        {this.state.selectedMovieDetails.id && 
           <main className='detail-page'>
-            {/* <MovieDetail id={this.state.selectedMovie}/> */}
+            <MovieDetail details={this.state.selectedMovieDetails} />
           </main>
         }
       </div>
