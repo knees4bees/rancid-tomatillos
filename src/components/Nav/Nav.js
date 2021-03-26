@@ -3,10 +3,10 @@ import homeIcon from '../../home.svg';
 import searchIcon from '../../search.svg';
 import './Nav.css';
 
-const Nav = () => {
+const Nav = ({resetHome}) => {
   return (
     <nav className='nav-bar'>
-      <button className='nav-bar__home' >
+      <button className='nav-bar__home' onClick={resetHome} >
         <img className='nav-bar__home--img' src={homeIcon} alt='home icon' />
       </button>
       <h1 className='nav-bar__header' >Rancid Tomatillos</h1>

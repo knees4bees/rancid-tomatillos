@@ -16,16 +16,19 @@ class App extends Component {
   } 
 
   displayMovieDetail = (id) => {
-    console.log(id);
     // fetch(id) 
     // ... returns detail data
-    this.setState({ selectedMovieDetails: fakeMovieDetailData.movie })
+    this.setState({ selectedMovieDetails: fakeMovieDetailData.movie });
+  }
+
+  resetHome = () => {
+    this.setState({ selectedMovieDetails: {} });
   }
 
   render() {
     return (
       <div>
-        <Nav />
+        <Nav resetHome={this.resetHome} />
         {!this.state.selectedMovieDetails.id && 
           <main className='home-page'>
             <Carousel movies={this.state.movies} displayMovieDetail={this.displayMovieDetail}/>
