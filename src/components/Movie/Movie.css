@@ -26,3 +26,10 @@
   height: 300px;
   border-radius: 3px;
 }
+
+.movie__poster--placeholder {
+  height: 300px;
+  width: 200px;
+  border-radius: 3px;
+  background-color: rgb(3, 3, 40);
+}
