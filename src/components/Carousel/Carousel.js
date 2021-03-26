@@ -5,7 +5,7 @@ import "../../../node_modules/slick-carousel/slick/slick-theme.css";
 import './Carousel.css'
 import Hero from '../Hero/Hero.js'
 
-const Carousel = ({movies}) => {
+const Carousel = ({movies, displayMovieDetail}) => {
   let featuredFilms = [];
 
   if (movies.length) {
@@ -16,6 +16,7 @@ const Carousel = ({movies}) => {
           image={movie.backdrop_path} 
           key={movie.id}
           id={movie.id}
+          displayMovieDetail={displayMovieDetail}
         />
       )
     })
