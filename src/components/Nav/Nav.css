@@ -12,6 +12,12 @@
 
 .nav-bar__home {
   margin-left: 20px;
+  background-color: none;
+  background: transparent;
+  border: 0;
+}
+
+.nav-bar__home--img {
   height: 35px;
 }
 
