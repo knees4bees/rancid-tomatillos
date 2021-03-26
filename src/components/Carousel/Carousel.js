@@ -6,23 +6,20 @@ import './Carousel.css'
 import Hero from '../Hero/Hero.js'
 
 const Carousel = ({movies, displayMovieDetail}) => {
-  let featuredFilms = [];
-
-  if (movies.length) {
-    featuredFilms = movies.slice(10, 15).map(movie => {
-      return (
-        <Hero 
-          title={movie.title} 
-          image={movie.backdrop_path} 
-          key={movie.id}
-          id={movie.id}
-          displayMovieDetail={displayMovieDetail}
-        />
-      )
-    })
-  } else {
-    featuredFilms.push(<div className='hero__placeholder' key='hero-placeholder'></div>);
-  }
+ 
+  const featuredFilms = movies.slice(10, 15).map(movie => {
+    return (
+      <Hero 
+        title={movie.title} 
+        image={movie.backdrop_path} 
+        key={movie.id}
+        id={movie.id}
+        displayMovieDetail={displayMovieDetail}
+      />
+    )
+  })
+  
+  const placeholder = <div className='hero__placeholder' key='hero-placeholder'></div>
 
   const settings = {
     dots: true,
@@ -36,8 +33,8 @@ const Carousel = ({movies, displayMovieDetail}) => {
 
   return (
     <div className='carousel'>
-      <Slider {...settings}>        
-          {featuredFilms}       
+      <Slider {...settings}>  
+        {movies.length ? featuredFilms : placeholder}
       </Slider>
     </div>
   );
