@@ -8,14 +8,28 @@
   box-shadow: 15px 15px 40px rgba(245, 16, 234, 0.2), 
     -15px -15px 40px rgba(16, 153, 245, 0.2);
   border-radius: 3px;
+  border: 0;
+  outline: none;
 }
 
-.movie:hover {
+.movie:hover,
+.movie:focus {
   cursor: pointer;
   transform: scale(1.2);
+}
+
+.movie:focus {
+  padding: 2px;
 }
 
 .movie__poster {
   height: 300px;
   border-radius: 3px;
+}
+
+.movie__poster--placeholder {
+  height: 300px;
+  width: 200px;
+  border-radius: 3px;
+  background-color: rgb(3, 3, 40);
 }
