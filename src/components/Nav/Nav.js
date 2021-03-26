@@ -7,10 +7,10 @@ const Nav = () => {
   return (
     <nav className='nav-bar'>
       <button className='nav-bar__home' >
-        <img src={homeIcon} className='nav-bar__home--img' tabIndex='0' />
+        <img className='nav-bar__home--img' src={homeIcon} alt='home icon' />
       </button>
       <h1 className='nav-bar__header' >Rancid Tomatillos</h1>
-      <img src={searchIcon} className='nav-bar__search' />
+      <img className='nav-bar__search' src={searchIcon} alt='search icon' />
     </nav>
   )
 }

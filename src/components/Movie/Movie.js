@@ -1,10 +1,10 @@
 import React from 'react';
 import './Movie.css';
 
-const Movie = ({ poster, id, displayMovieDetail }) => {
+const Movie = ({ poster, title, id, displayMovieDetail }) => {
   return (
     <button className='movie' onClick={() => displayMovieDetail(id)}>
-      <img src={poster} className='movie__poster'/>
+      <img className='movie__poster' src={poster} alt={title} />
     </button>
   )
 }

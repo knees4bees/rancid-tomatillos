@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import movieData from './mock-data';
 import Nav from './components/Nav/Nav.js';
-import Hero from './components/Hero/Hero.js';
 import Movies from './components/Movies/Movies.js';
 import Carousel from './components/Carousel/Carousel.js';
 import fakeMovieDetailData from './fake-movie-detail-data.js';
@@ -12,9 +11,7 @@ class App extends Component {
     super();
     this.state = {
       movies: movieData.movies,
-      // selectedMovieDetails: fakeMovieDetailData.movie,
       selectedMovieDetails: {},
-      // selectedMovie: 0,
     }
   } 
 

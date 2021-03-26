@@ -5,7 +5,7 @@ const MovieDetail = ({details}) => {
   return (
     <div className='movie-detail'>
       <div className='movie-card'>
-        <img src={details.backdrop_path} className='movie-card__image' />
+        <img className='movie-card__image' src={details.backdrop_path} alt={details.title}/>
         <section className='movie-card__details' >
           <h2>{details.title}</h2>
           <p>{details.average_rating}</p>
