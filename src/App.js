@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
 import './App.css';
-import movieData from './mock-data';
 import Nav from './components/Nav/Nav.js';
 import Movies from './components/Movies/Movies.js';
 import Carousel from './components/Carousel/Carousel.js';
-import fakeMovieDetailData from './fake-movie-detail-data.js';
 import MovieDetail from './components/MovieDetail/MovieDetail.js';
+import getAllMovies, { getSelectedMovie } from './utilities.js';
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      movies: movieData.movies,
-      // movies: [],
+      movies: [],
       selectedMovieDetails: {},
     }
   } 
 
+  componentDidMount = () => {
+    getAllMovies()
+      .then(movieFetchData => this.setState({movies: movieFetchData.movies}))
+  }
+
   displayMovieDetail = (id) => {
-    // fetch(id) 
-    // ... returns detail data
-    this.setState({ selectedMovieDetails: fakeMovieDetailData.movie });
+    // display placeholder?
+    getSelectedMovie(id)
+      .then(movieData => this.setState({selectedMovieDetails: movieData.movie}))
   }
 
   resetHome = () => {
