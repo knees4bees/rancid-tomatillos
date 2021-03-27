@@ -3,9 +3,9 @@ import React from 'react';
 import './MovieDetail.css';
 
 const MovieDetail = ({details}) => {
-  const percentage = details.average_rating / 10 * 100
+  const percentage = details.average_rating * 10
   const ratingStyle = {
-    background: `linear-gradient(to right, #ffd000 ${percentage}%, #cfe2f7d8 ${percentage}%, #d0e2f7d8 100%)`
+    background: `linear-gradient(to right, #ffd000 ${percentage}%, #cfe2f7d8 ${percentage}%)`
   }
   
   return (
@@ -23,10 +23,10 @@ const MovieDetail = ({details}) => {
           <span className="fa fa-star"></span>
           <span className="fa fa-star"></span>
         </div><br/>
+        <p className='movie-card__details__tagline' >{details.tagline}</p>
         <p className='movie-card__details__run-time' >{details.runtime} min</p>
         <p className='movie-card__details__genre' >{details.genres}</p>
         <p className='movie-card__details__overview' >{details.overview}</p>
-        {/* <p className='movie-card__details__tagline' >{details.tagline}</p> */}
         <button className='movie-card__details__btn'>Watch Trailer</button>
       </section>
       <div className='movie-backdrop'>
