@@ -1,6 +1,7 @@
 import { buildQueries } from '@testing-library/dom';
 import React from 'react';
 import './MovieDetail.css';
+import { BsPlayFill } from 'react-icons/bs';
 
 const MovieDetail = ({details}) => {
   const percentage = details.average_rating * 10
@@ -27,7 +28,7 @@ const MovieDetail = ({details}) => {
         <p className='movie-card__details__run-time' >{details.runtime} min</p>
         <p className='movie-card__details__genre' >{details.genres}</p>
         <p className='movie-card__details__overview' >{details.overview}</p>
-        <button className='movie-card__details__btn'>Watch Trailer</button>
+        <button className='movie-card__details__btn'><BsPlayFill className='icon'/>Watch Trailer</button>
       </section>
       <div className='movie-backdrop'>
         <img className='movie-backdrop__image' src={details.backdrop_path} alt={details.title}/>
