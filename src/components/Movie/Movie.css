@@ -18,10 +18,6 @@
   transform: scale(1.2);
 }
 
-.movie:focus {
-  padding: 2px;
-}
-
 .movie__poster {
   height: 300px;
   border-radius: 3px;
