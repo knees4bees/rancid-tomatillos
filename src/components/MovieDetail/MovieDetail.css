@@ -2,7 +2,6 @@
   position: relative;
   display: flex;
   flex-direction: row-reverse;
-  margin-top: 100px;
   align-items: stretch;
   width:90%;
   margin: 150px auto;
@@ -110,5 +109,16 @@
     position: unset;
     float:bottom;
     width: 80%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .movie-detail {
+    margin-top: 100px;
+    width:98%
+  }
+
+  .movie-card__details {
+    width: 100%;
   }
 }
