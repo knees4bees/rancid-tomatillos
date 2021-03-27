@@ -16,10 +16,7 @@
 .movie:focus {
   cursor: pointer;
   transform: scale(1.2);
-}
-
-.movie:focus {
-  padding: 2px;
+  
 }
 
 .movie__poster {
