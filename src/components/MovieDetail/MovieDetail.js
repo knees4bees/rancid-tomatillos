@@ -26,7 +26,8 @@ const MovieDetail = ({details}) => {
         <p className='movie-card__details__run-time' >{details.runtime} min</p>
         <p className='movie-card__details__genre' >{details.genres}</p>
         <p className='movie-card__details__overview' >{details.overview}</p>
-        <p className='movie-card__details__tagline' >{details.tagline}</p>
+        {/* <p className='movie-card__details__tagline' >{details.tagline}</p> */}
+        <button className='movie-card__details__btn'>Watch Trailer</button>
       </section>
       <div className='movie-backdrop'>
         <img className='movie-backdrop__image' src={details.backdrop_path} alt={details.title}/>
