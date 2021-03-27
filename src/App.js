@@ -16,13 +16,15 @@ class App extends Component {
 
   componentDidMount = () => {
     getAllMovies()
-      .then(movieFetchData => this.setState({movies: movieFetchData.movies}))
+      .then(movieFetchData => this.setState({ movies: movieFetchData.movies }))
+      .catch(err => console.log(err))
   }
 
   displayMovieDetail = (id) => {
     // display placeholder?
     getSelectedMovie(id)
-      .then(movieData => this.setState({selectedMovieDetails: movieData.movie}))
+      .then(movieData => this.setState({ selectedMovieDetails: movieData.movie }))
+      .catch(err => console.log(err))
   }
 
   resetHome = () => {

@@ -1,17 +1,19 @@
 const getAllMovies = () => {
   return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-    .then(response => response.json())
-    .catch(err => console.log(err))
+    .then(handleErrors)
 }
 
 export const getSelectedMovie = (id) => {
-  console.log('what up');
-
   return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-    .then(response => response.json())
-    .catch(err => console.log(err))
+    .then(handleErrors)
 }
 
+const handleErrors = (response, message) => {
+  if (!response.ok) {
+    throw new Error('Oops! Something went wrong. Please try again.')
+  }
+  return response.json();
+}
 
 
 export default getAllMovies;
