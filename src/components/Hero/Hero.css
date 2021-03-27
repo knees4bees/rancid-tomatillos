@@ -22,8 +22,10 @@
   bottom:0;
   left:0;
   color: #fff;
-  font-size: 10vw;
+  font-size: clamp(12px, 8vw, 80px);
+  /* text-transform: uppercase; */
   z-index: 5;
+  font-family: 'Yeseva One', cursive;
 }
 
 .hero__placeholder {
