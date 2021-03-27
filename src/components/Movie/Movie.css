@@ -16,7 +16,6 @@
 .movie:focus {
   cursor: pointer;
   transform: scale(1.2);
-  
 }
 
 .movie__poster {
