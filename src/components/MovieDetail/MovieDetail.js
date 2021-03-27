@@ -1,18 +1,32 @@
+import { buildQueries } from '@testing-library/dom';
 import React from 'react';
 import './MovieDetail.css';
 
 const MovieDetail = ({details}) => {
+  const percentage = details.average_rating / 10 * 100
+  const computed = {
+    background: `linear-gradient(to right, #ffd000 ${percentage}%, #cfe2f7d8 ${percentage}%, #d0e2f7d8 100%)`
+  }
+  
   return (
     <div className='movie-detail'>
       <section className='movie-card__details' >
         <img src={details.poster_path} className="movie-card__details__poster" />
         <h2 className='movie-card__details__title' >{details.title}</h2>
-        <p className='movie-card__details__' >{details.average_rating}</p>
+        <h3 className='movie-card__details__date' >{details.release_date.split('-')[0]}</h3>
+        <div className='movie-card__details__rating' 
+          style={computed}
+        >
+          <span className="fa fa-star"></span>
+          <span className="fa fa-star"></span>
+          <span className="fa fa-star"></span>
+          <span className="fa fa-star"></span>
+          <span className="fa fa-star"></span>
+        </div><br/>
+        <p className='movie-card__details__run-time' >{details.runtime} min</p>
+        <p className='movie-card__details__genre' >{details.genres}</p>
+        <p className='movie-card__details__overview' >{details.overview}</p>
         <p className='movie-card__details__' >{details.tagline}</p>
-        <p className='movie-card__details__' >{details.genres}</p>
-        <p className='movie-card__details__' >{details.overview}</p>
-        <p className='movie-card__details__' >{details.runtime}</p>
-        <p className='movie-card__details__' >{details.release_date}</p>
       </section>
       <div className='movie-backdrop'>
         <img className='movie-backdrop__image' src={details.backdrop_path} alt={details.title}/>
