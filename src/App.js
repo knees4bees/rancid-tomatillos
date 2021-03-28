@@ -40,7 +40,11 @@ class App extends Component {
   }
 
   resetHome = () => {
-    this.setState({ selectedMovieDetails: {} });
+    this.setState({ 
+      selectedMovieDetails: {},
+      fetchError: false,
+      fetchStatus: 0
+    });
   }
 
   render() {
@@ -49,15 +53,21 @@ class App extends Component {
     if (this.state.fetchError) {
       return this.renderError(this.state.fetchStatus);
     }
-
+    
     return (
       <div>
         <Nav resetHome={this.resetHome} />
         {!this.state.selectedMovieDetails.id
           && (
             <main className="home-page">
-              <Carousel movies={this.state.movies} displayMovieDetail={this.displayMovieDetail} />
-              <Movies movies={this.state.movies} displayMovieDetail={this.displayMovieDetail} />
+              <Carousel 
+                movies={this.state.movies} 
+                displayMovieDetail={this.displayMovieDetail} 
+              />
+              <Movies 
+                movies={this.state.movies} 
+                displayMovieDetail={this.displayMovieDetail} 
+              />
             </main>
           )}
         {this.state.selectedMovieDetails.id
@@ -70,11 +80,11 @@ class App extends Component {
     );
   }
 
-  renderError(fetchStatus) {
+  renderError = (fetchStatus) => {
     let message;
 
     switch (fetchStatus) {
-      case 0: // Fetch failed entirely (0 is initial status)
+      case 0: 
         message = 'Oops! Something went wrong. Please check your internet connection.'
         break;
       case 404:
