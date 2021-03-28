@@ -5,6 +5,7 @@ import Movies from './components/Movies/Movies';
 import Carousel from './components/Carousel/Carousel';
 import MovieDetail from './components/MovieDetail/MovieDetail';
 import getAllMovies, { getSelectedMovie } from './utilities';
+import Error from './components/Error/Error';
 
 class App extends Component {
   constructor() {
@@ -53,6 +54,8 @@ class App extends Component {
   }
 
   render() {
+    // return this.renderError(404); // To force render of error state
+
     if (this.state.fetchError) {
       return this.renderError(this.state.fetchStatus);
     }
