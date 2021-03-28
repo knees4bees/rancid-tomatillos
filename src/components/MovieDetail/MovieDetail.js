@@ -1,22 +1,22 @@
-import { buildQueries } from '@testing-library/dom';
 import React from 'react';
 import './MovieDetail.css';
 import { BsPlayFill } from 'react-icons/bs';
 
-const MovieDetail = ({details}) => {
-  const percentage = details.average_rating * 10
+const MovieDetail = ({ details }) => {
+  const percentage = details.average_rating * 10;
   const ratingStyle = {
     background: `linear-gradient(to right, #ffd000 ${percentage}%, #cfe2f7d8 ${percentage}%)`
-  }
-  
+  };
+
   return (
     // if (details) {vv that stuff}
-    <div className='movie-detail'>
-      <section className='movie-card__details' >
+    <div className="movie-detail">
+      <section className="movie-card__details">
         <img src={details.poster_path} className="movie-card__details__poster" />
-        <h2 className='movie-card__details__title' >{details.title}</h2>
-        <h3 className='movie-card__details__date' >{details.release_date.split('-')[0]}</h3>
-        <div className='movie-card__details__rating' 
+        <h2 className="movie-card__details__title">{details.title}</h2>
+        <h3 className="movie-card__details__date">{details.release_date.split('-')[0]}</h3>
+        <div
+          className="movie-card__details__rating"
           style={ratingStyle}
         >
           <span className="fa fa-star"></span>
@@ -24,18 +24,19 @@ const MovieDetail = ({details}) => {
           <span className="fa fa-star"></span>
           <span className="fa fa-star"></span>
           <span className="fa fa-star"></span>
-        </div><br/>
-        <p className='movie-card__details__tagline' >{details.tagline}</p>
-        <p className='movie-card__details__run-time' >{details.runtime} min</p>
-        <p className='movie-card__details__genre' >{details.genres}</p>
-        <p className='movie-card__details__overview' >{details.overview}</p>
-        <button className='movie-card__details__btn'><BsPlayFill className='icon'/>Watch Trailer</button>
+        </div>
+        <br />
+        <p className="movie-card__details__tagline">{details.tagline}</p>
+        <p className="movie-card__details__run-time">{details.runtime} min</p>
+        <p className="movie-card__details__genre">{details.genres}</p>
+        <p className="movie-card__details__overview">{details.overview}</p>
+        <button className="movie-card__details__btn"><BsPlayFill className="icon" />Watch Trailer</button>
       </section>
-      <div className='movie-backdrop'>
-        <img className='movie-backdrop__image' src={details.backdrop_path} alt={details.title}/>
+      <div className="movie-backdrop">
+        <img className="movie-backdrop__image" src={details.backdrop_path} alt={details.title}/>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default MovieDetail;
