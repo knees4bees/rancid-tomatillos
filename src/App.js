@@ -53,6 +53,10 @@ class App extends Component {
   }
 
   render() {
+    if (this.state.fetchError) {
+      return this.renderError(this.state.fetchStatus);
+    }
+
     return (
       <div>
         <Nav resetHome={this.resetHome} />
@@ -71,6 +75,31 @@ class App extends Component {
           )}
       </div>
     );
+  }
+
+  renderError(fetchStatus) {
+    let message;
+
+    switch (fetchStatus) {
+      case 0: // Fetch failed entirely (0 is initial status)
+        message = 'Oops! Something went wrong. Please check your internet connection.'
+        break;
+      case 404:
+        message = 'Page not found.'
+        break;
+      case 422:
+        message = 'Invalid request.'
+        break;
+      default:
+        message = 'Oops! Something went wrong. Please try again.';
+    }
+
+    return (
+      <div>
+        <Nav resetHome={this.resetHome} />
+        <Error message={message} />
+      </div>
+    )
   }
 }
 
