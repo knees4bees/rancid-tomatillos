@@ -15,13 +15,3 @@ export const handleErrors = (response) => {
 }
 
 export default getAllMovies;
-
-// (response) => {
-//         this.setState({ fetchStatus: response.status });
-
-//         if (!response.ok) {
-//           throw new Error();
-//         }
-
-//         return response.json();
-//       }

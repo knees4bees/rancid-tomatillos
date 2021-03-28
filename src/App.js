@@ -25,7 +25,7 @@ class App extends Component {
         return handleErrors(response);
       })
       .then((movieFetchData) => this.setState({ movies: movieFetchData.movies }))
-      .catch((err) => this.setState( {fetchError: true }));
+      .catch(() => this.setState( {fetchError: true }));
   }
 
   displayMovieDetail = (id) => {
@@ -36,7 +36,7 @@ class App extends Component {
         return handleErrors(response);
       })
       .then((movieData) => this.setState({ selectedMovieDetails: movieData.movie }))
-      .catch((err) => this.setState( {fetchError: true }));
+      .catch(() => this.setState( {fetchError: true }));
   }
 
   resetHome = () => {
