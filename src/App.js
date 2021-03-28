@@ -6,6 +6,7 @@ import Carousel from './components/Carousel/Carousel';
 import MovieDetail from './components/MovieDetail/MovieDetail';
 import getAllMovies, { getSelectedMovie, handleErrors} from './utilities';
 import Error from './components/Error/Error';
+import Main from './components/Main/Main';
 
 class App extends Component {
   constructor() {
@@ -47,39 +48,6 @@ class App extends Component {
     });
   }
 
-  render() {
-    // return this.renderError(500); // To force render of error state
-
-    if (this.state.fetchError) {
-      return this.renderError(this.state.fetchStatus);
-    }
-    
-    return (
-      <div>
-        <Nav resetHome={this.resetHome} />
-        {!this.state.selectedMovieDetails.id
-          && (
-            <main className="home-page">
-              <Carousel 
-                movies={this.state.movies} 
-                displayMovieDetail={this.displayMovieDetail} 
-              />
-              <Movies 
-                movies={this.state.movies} 
-                displayMovieDetail={this.displayMovieDetail} 
-              />
-            </main>
-          )}
-        {this.state.selectedMovieDetails.id
-          && (
-            <main className="detail-page">
-              <MovieDetail details={this.state.selectedMovieDetails} />
-            </main>
-          )}
-      </div>
-    );
-  }
-
   renderError = (fetchStatus) => {
     let message;
 
@@ -99,11 +67,71 @@ class App extends Component {
 
     return (
       <div>
-        <Nav resetHome={this.resetHome} />
         <Error message={message} />
       </div>
     )
   }
+
+  toggleView = () => {
+    // return this.renderError(500); // To force render of error state
+
+    if (this.state.fetchError) {
+      return this.renderError(this.state.fetchStatus);
+    } else {
+      return (
+        <Main
+          selectedMovie={this.state.selectedMovieDetails}
+          movies={this.state.movies}
+          displayMovieDetail={this.displayMovieDetail}
+        />
+      )
+    }
+  }
+
+
+  render() {
+    const toggleView = () => {
+      if (this.state.fetchError) {
+        return this.renderError(this.state.fetchStatus);
+      } else {
+        return (
+          <Main
+            selectedMovie={this.state.selectedMovieDetails}
+            movies={this.state.movies}
+            displayMovieDetail={this.displayMovieDetail}
+          />
+        )
+      }
+    }
+    
+    return (
+      <div>
+        <Nav resetHome={this.resetHome} />
+        {this.renderError(500)}
+        {toggleView()};
+        {/* {!this.state.selectedMovieDetails.id
+          && (
+            <main className="home-page">
+              <Carousel 
+                movies={this.state.movies} 
+                displayMovieDetail={this.displayMovieDetail} 
+              />
+              <Movies 
+                movies={this.state.movies} 
+                displayMovieDetail={this.displayMovieDetail} 
+              />
+            </main>
+          )} */}
+        {/* {this.state.selectedMovieDetails.id
+          && (
+            <main className="detail-page">
+              <MovieDetail details={this.state.selectedMovieDetails} />
+            </main>
+          )} */}
+      </div>
+    );
+  }
+
 }
 
 export default App;
