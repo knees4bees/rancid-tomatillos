@@ -26,8 +26,8 @@ const Carousel = ({ movies, displayMovieDetail }) => {
     speed: 2000,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplaySpeed: 1000,
-    autoplay: true
+    // autoplaySpeed: 10000,
+    // autoplay: true
   };
 
   return (
