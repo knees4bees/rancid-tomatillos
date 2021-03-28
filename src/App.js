@@ -35,8 +35,17 @@ class App extends Component {
   displayMovieDetail = (id) => {
     // display placeholder?
     getSelectedMovie(id)
+      .then((response) => {
+        this.setState({ fetchStatus: response.status });
+
+        if (!response.ok) {
+          throw new Error();
+        }
+
+        return response.json();
+      })
       .then((movieData) => this.setState({ selectedMovieDetails: movieData.movie }))
-      .catch((err) => console.log(err));
+      .catch((err) => this.setState( {fetchError: true }));
   }
 
   resetHome = () => {
