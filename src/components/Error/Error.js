@@ -3,7 +3,10 @@ import './Error.css';
 
 const Error = ({ message }) => {
   return (
-    <h1>{message}</h1>
+    <div className="error">
+      <img className="error__img" src='../../../tomatillo.svg' alt='tomatillo' />
+      <p className="error__message">{message}</p>
+    </div>
   );
 };
 
