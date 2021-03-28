@@ -9,7 +9,6 @@ const MovieDetail = ({ details }) => {
   };
 
   return (
-    // if (details) {vv that stuff}
     <div className="movie-detail">
       <section className="movie-card__details">
         <img src={details.poster_path} className="movie-card__details__poster" />

@@ -17,7 +17,7 @@ const Carousel = ({ movies, displayMovieDetail }) => {
       />
     );
   });
- 
+
   const placeholder = <div className="hero__placeholder" key="hero-placeholder"></div>;
 
   const settings = {
@@ -26,8 +26,8 @@ const Carousel = ({ movies, displayMovieDetail }) => {
     speed: 2000,
     slidesToShow: 1,
     slidesToScroll: 1,
-    // autoplaySpeed: 7000,
-    // autoplay: true
+    autoplaySpeed: 1000,
+    autoplay: true
   };
 
   return (
