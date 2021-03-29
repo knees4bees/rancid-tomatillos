@@ -6,9 +6,7 @@ import MovieDetail from '../MovieDetail/MovieDetail';
 const Main = ({ selectedMovie, movies, displayMovieDetail }) => {
   if (selectedMovie.id) {
     return (
-      <main className="detail-page">
-        <MovieDetail details={selectedMovie} />
-      </main>
+      <MovieDetail details={selectedMovie} />
     );
   }
 

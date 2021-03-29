@@ -4,6 +4,7 @@ import Nav from './components/Nav/Nav';
 import getAllMovies, { getSelectedMovie, handleErrors } from './utilities';
 import Error from './components/Error/Error';
 import Main from './components/Main/Main';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -84,7 +85,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Nav resetHome={this.resetHome} />
+        <Route path='/'>
+          <Nav resetHome={this.resetHome} />
+        </Route>
         {this.toggleView()}
       </div>
     );

@@ -9,7 +9,7 @@ const MovieDetail = ({ details }) => {
   };
 
   return (
-    <div className="movie-detail">
+    <main className="movie-detail">
       <section className="movie-card__details">
         <img src={details.poster_path} className="movie-card__details__poster" />
         <h2 className="movie-card__details__title">{details.title}</h2>
@@ -34,7 +34,7 @@ const MovieDetail = ({ details }) => {
       <div className="movie-backdrop">
         <img className="movie-backdrop__image" src={details.backdrop_path} alt={details.title}/>
       </div>
-    </div>
+    </main>
   );
 };
 
