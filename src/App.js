@@ -4,7 +4,8 @@ import Nav from './components/Nav/Nav';
 import getAllMovies, { getSelectedMovie, handleErrors } from './utilities';
 import Error from './components/Error/Error';
 import Main from './components/Main/Main';
-import { Route } from 'react-router-dom';
+import MovieDetail from './components/MovieDetail/MovieDetail';
+import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -74,11 +75,18 @@ class App extends Component {
       return this.renderError(this.state.fetchStatus);
     }
     return (
-      <Main
-        selectedMovie={this.state.selectedMovieDetails}
-        movies={this.state.movies}
-        displayMovieDetail={this.displayMovieDetail}
-      />
+      <Switch>
+        <Route exact path="/">
+          <Main
+            selectedMovie={this.state.selectedMovieDetails}
+            movies={this.state.movies}
+            displayMovieDetail={this.displayMovieDetail}
+          />
+        </Route>
+        <Route path={`/${this.state.selectedMovieDetails.id}`}>
+          <MovieDetail details={this.state.selectedMovieDetails} />
+        </Route>
+      </Switch>
     );
   }
 

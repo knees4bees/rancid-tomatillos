@@ -4,11 +4,11 @@ import Movies from '../Movies/Movies';
 import MovieDetail from '../MovieDetail/MovieDetail';
 
 const Main = ({ selectedMovie, movies, displayMovieDetail }) => {
-  if (selectedMovie.id) {
-    return (
-      <MovieDetail details={selectedMovie} />
-    );
-  }
+  // if (selectedMovie.id) {
+  //   return (
+  //     <MovieDetail details={selectedMovie} />
+  //   );
+  // }
 
   return (
     <main className="home-page">
