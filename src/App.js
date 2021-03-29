@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import Nav from './components/Nav/Nav';
-import Movies from './components/Movies/Movies';
-import Carousel from './components/Carousel/Carousel';
-import MovieDetail from './components/MovieDetail/MovieDetail';
-import getAllMovies, { getSelectedMovie } from './utilities';
+import getAllMovies, { getSelectedMovie, handleErrors } from './utilities';
 import Error from './components/Error/Error';
+import Main from './components/Main/Main';
 
 class App extends Component {
   constructor() {
@@ -22,15 +20,10 @@ class App extends Component {
     getAllMovies()
       .then((response) => {
         this.setState({ fetchStatus: response.status });
-
-        if (!response.ok) {
-          throw new Error();
-        }
-
-        return response.json();
+        return handleErrors(response);
       })
       .then((movieFetchData) => this.setState({ movies: movieFetchData.movies }))
-      .catch((err) => this.setState( {fetchError: true }));
+      .catch(() => this.setState({ fetchError: true }));
   }
 
   displayMovieDetail = (id) => {
@@ -38,71 +31,63 @@ class App extends Component {
     getSelectedMovie(id)
       .then((response) => {
         this.setState({ fetchStatus: response.status });
-
-        if (!response.ok) {
-          throw new Error();
-        }
-
-        return response.json();
+        return handleErrors(response);
       })
       .then((movieData) => this.setState({ selectedMovieDetails: movieData.movie }))
-      .catch((err) => this.setState( {fetchError: true }));
+      .catch(() => this.setState({ fetchError: true }))
+      // .then(this.setState({ fetchError: true, fetchStatus: 404 })) //to test errors on click
   }
 
   resetHome = () => {
-    this.setState({ selectedMovieDetails: {} });
+    this.setState({
+      selectedMovieDetails: {},
+      fetchError: false,
+      fetchStatus: 0
+    });
   }
 
-  render() {
-    // return this.renderError(404); // To force render of error state
-
-    if (this.state.fetchError) {
-      return this.renderError(this.state.fetchStatus);
-    }
-
-    return (
-      <div>
-        <Nav resetHome={this.resetHome} />
-        {!this.state.selectedMovieDetails.id
-          && (
-            <main className="home-page">
-              <Carousel movies={this.state.movies} displayMovieDetail={this.displayMovieDetail} />
-              <Movies movies={this.state.movies} displayMovieDetail={this.displayMovieDetail} />
-            </main>
-          )}
-        {this.state.selectedMovieDetails.id
-          && (
-            <main className="detail-page">
-              <MovieDetail details={this.state.selectedMovieDetails} />
-            </main>
-          )}
-      </div>
-    );
-  }
-
-  renderError(fetchStatus) {
+  renderError = (fetchStatus) => {
     let message;
 
     switch (fetchStatus) {
-      case 0: // Fetch failed entirely (0 is initial status)
-        message = 'Oops! Something went wrong. Please check your internet connection.'
+      case 0:
+        message = 'Oops! Something went wrong. Please check your internet connection.';
         break;
       case 404:
-        message = 'Page not found.'
+        message = 'Page not found.';
         break;
       case 422:
-        message = 'Invalid request.'
+        message = 'Invalid request.';
         break;
       default:
         message = 'Oops! Something went wrong. Please try again.';
     }
 
     return (
+      <Error message={message} />
+    );
+  }
+
+  toggleView = () => {
+    if (this.state.fetchError) {
+      return this.renderError(this.state.fetchStatus);
+    }
+    return (
+      <Main
+        selectedMovie={this.state.selectedMovieDetails}
+        movies={this.state.movies}
+        displayMovieDetail={this.displayMovieDetail}
+      />
+    );
+  }
+
+  render() {
+    return (
       <div>
         <Nav resetHome={this.resetHome} />
-        <Error message={message} />
+        {this.toggleView()}
       </div>
-    )
+    );
   }
 }
 
