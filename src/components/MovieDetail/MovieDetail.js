@@ -1,11 +1,27 @@
 import React, { Component } from 'react';
 import './MovieDetail.css';
 import { BsPlayFill } from 'react-icons/bs';
+import { getSelectedMovie, handleErrors } from '../../utilities';
 
 class MovieDetail extends Component {
   constructor(props) {
     super(props);
-    this.state = {...props};
+    this.state = {
+      ...props.selectedMovie,
+      updateFetchStatus: props.updateFetchStatus,
+      updateFetchError: props.updateFetchError,
+    };
+  }
+
+  componentDidMount = () => {
+    console.log('MovieDetail component mounted')
+    getSelectedMovie(this.state.id)
+      .then((response) => {
+        this.state.updateFetchStatus(response.status);
+        return handleErrors(response);
+      })
+      .then((movieData) => this.setState({...movieData.movie}))
+      .catch(() => this.state.updateFetchError(true))
   }
 
   render() {

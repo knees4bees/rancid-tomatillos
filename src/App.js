@@ -12,10 +12,18 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      selectedMovieDetails: {},
+      // selectedMovieDetails: {},
       fetchStatus: 0,
       fetchError: false
     };
+  }
+
+  updateFetchStatus = (status) => {
+    return this.setState({ fetchStatus: status });
+  }
+
+  updateFetchError = (error) => {
+    return this.setState({ fetchError: error });
   }
 
   componentDidMount = () => {
@@ -30,19 +38,19 @@ class App extends Component {
 
   displayMovieDetail = (id) => {
     // display placeholder?
-    getSelectedMovie(id)
-      .then((response) => {
-        this.setState({ fetchStatus: response.status });
-        return handleErrors(response);
-      })
-      .then((movieData) => this.setState({ selectedMovieDetails: movieData.movie }))
-      .catch(() => this.setState({ fetchError: true }))
+    // getSelectedMovie(id)
+    //   .then((response) => {
+    //     this.setState({ fetchStatus: response.status });
+    //     return handleErrors(response);
+    //   })
+    //   .then((movieData) => this.setState({ selectedMovieDetails: movieData.movie }))
+    //   .catch(() => this.setState({ fetchError: true }))
       // .then(this.setState({ fetchError: true, fetchStatus: 404 })) //to test errors on click
   }
 
   resetHome = () => {
     this.setState({
-      selectedMovieDetails: {},
+      // selectedMovieDetails: {},
       fetchError: false,
       fetchStatus: 0
     });
@@ -83,10 +91,18 @@ class App extends Component {
           </Route>
           <Route path="/:id" render={({ match }) => {
             const { id } = match.params;
-            const selectedMovie = this.state.movies.find(movie => movie.id === parseInt(id));
+
+            let selectedMovie = { id: parseInt(id) }
+            if (this.state.movies.length) {
+              selectedMovie = this.state.movies.find(movie => movie.id === parseInt(id));
+            }
             console.log(selectedMovie);
 
-            return <MovieDetail {...selectedMovie} />
+            return (<MovieDetail 
+              {...selectedMovie} 
+              updateFetchStatus={this.updateFetchStatus} 
+              updateFetchError={this.updateFetchError} 
+            />)
           }} />
         </Switch>
       </div>
