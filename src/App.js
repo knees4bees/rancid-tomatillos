@@ -70,26 +70,6 @@ class App extends Component {
     );
   }
 
-  toggleView = () => {
-    if (this.state.fetchError) {
-      return this.renderError(this.state.fetchStatus);
-    }
-    return (
-      <Switch>
-        <Route exact path="/">
-          <Main
-            selectedMovie={this.state.selectedMovieDetails}
-            movies={this.state.movies}
-            displayMovieDetail={this.displayMovieDetail}
-          />
-        </Route>
-        <Route path={`/${this.state.selectedMovieDetails.id}`}>
-          <MovieDetail details={this.state.selectedMovieDetails} />
-        </Route>
-      </Switch>
-    );
-  }
-
   render() {
     return (
       <div>
@@ -109,7 +89,6 @@ class App extends Component {
             return <MovieDetail {...selectedMovie} />
           }} />
         </Switch>
-        {/* {this.toggleView()} */}
       </div>
     );
   }
