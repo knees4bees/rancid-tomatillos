@@ -93,10 +93,23 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Route path='/'>
-          <Nav resetHome={this.resetHome} />
-        </Route>
-        {this.toggleView()}
+        <Nav resetHome={this.resetHome} />
+        <Switch>
+          <Route exact path="/">
+            <Main
+              movies={this.state.movies}
+              displayMovieDetail={this.displayMovieDetail}
+            />
+          </Route>
+          <Route path="/:id" render={({ match }) => {
+            const { id } = match.params;
+            const selectedMovie = this.state.movies.find(movie => movie.id === parseInt(id));
+            console.log(selectedMovie);
+
+            return <MovieDetail {...selectedMovie} />
+          }} />
+        </Switch>
+        {/* {this.toggleView()} */}
       </div>
     );
   }

@@ -3,7 +3,7 @@ import Carousel from '../Carousel/Carousel';
 import Movies from '../Movies/Movies';
 import MovieDetail from '../MovieDetail/MovieDetail';
 
-const Main = ({ selectedMovie, movies, displayMovieDetail }) => {
+const Main = ({ movies, displayMovieDetail }) => {
   // if (selectedMovie.id) {
   //   return (
   //     <MovieDetail details={selectedMovie} />
@@ -18,7 +18,7 @@ const Main = ({ selectedMovie, movies, displayMovieDetail }) => {
       />
       <Movies
         movies={movies}
-        displayMovieDetail={displayMovieDetail}
+        // displayMovieDetail={displayMovieDetail}
       />
     </main>
   );
