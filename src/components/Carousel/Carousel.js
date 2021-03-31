@@ -7,13 +7,14 @@ import './Carousel.css';
 import Hero from '../Hero/Hero';
 
 const Carousel = ({ movies }) => {
-  const featuredFilms = movies.slice(10, 15).map((movie) => {
+  const featuredFilms = movies.slice(15, 20).map((movie) => {
+    const { id, title, backdrop_path } = movie
     return (
-      <Link to={`/${movie.id}`} key={movie.id}>
+      <Link to={`/${id}`} key={id}>
         <Hero
-          title={movie.title}
-          image={movie.backdrop_path}
-          key={movie.id}
+          title={title}
+          image={backdrop_path}
+          key={id}
         />
       </Link>
     );
