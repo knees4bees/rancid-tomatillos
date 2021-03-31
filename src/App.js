@@ -50,7 +50,6 @@ class App extends Component {
 
   resetHome = () => {
     this.setState({
-      // selectedMovieDetails: {},
       fetchError: false,
       fetchStatus: 0
     });
@@ -90,13 +89,10 @@ class App extends Component {
             />
           </Route>
           <Route path="/:id" render={({ match }) => {
-            const { id } = match.params;
+            const id = parseInt(match.params.id);
+            const matchedMovie = this.state.movies.find(movie => movie.id === id);
 
-            let selectedMovie = { id: parseInt(id) }
-            if (this.state.movies.length) {
-              selectedMovie = this.state.movies.find(movie => movie.id === parseInt(id));
-            }
-            console.log(selectedMovie);
+            const selectedMovie = this.state.movies.length ? matchedMovie : { id: id };
 
             return (<MovieDetail 
               {...selectedMovie} 

@@ -6,22 +6,18 @@ import { getSelectedMovie, handleErrors } from '../../utilities';
 class MovieDetail extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      ...props.selectedMovie,
-      updateFetchStatus: props.updateFetchStatus,
-      updateFetchError: props.updateFetchError,
-    };
+    this.state = {...props};
   }
 
   componentDidMount = () => {
-    console.log('MovieDetail component mounted')
+    console.log('******** 🏵 ********')
     getSelectedMovie(this.state.id)
       .then((response) => {
-        this.state.updateFetchStatus(response.status);
+        this.props.updateFetchStatus(response.status);
         return handleErrors(response);
       })
       .then((movieData) => this.setState({...movieData.movie}))
-      .catch(() => this.state.updateFetchError(true))
+      .catch(() => this.props.updateFetchError(true))
   }
 
   render() {
@@ -47,10 +43,10 @@ class MovieDetail extends Component {
             <span className="fa fa-star"></span>
           </div>
           <br />
-          {/* <p className="movie-card__details__tagline">{this.state?.tagline}</p> */}
-          {/* <p className="movie-card__details__run-time">{this.state?.runtime} min</p> */}
-          {/* <p className="movie-card__details__genre">{this.state?.genres}</p> */}
-          {/* <p className="movie-card__details__overview">{this.state?.overview}</p> */}
+          <p className="movie-card__details__tagline">{this.state?.tagline}</p>
+          <p className="movie-card__details__run-time">{this.state?.runtime} min</p>
+          <p className="movie-card__details__genre">{this.state?.genres?.join(', ')}</p>
+          <p className="movie-card__details__overview">{this.state?.overview}</p>
           <button className="movie-card__details__btn"><BsPlayFill className="icon" />Watch Trailer</button>
         </section>
         <div className="movie-backdrop">
