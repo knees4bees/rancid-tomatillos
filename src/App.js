@@ -1,29 +1,20 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Nav from './components/Nav/Nav';
-import getAllMovies, { getSelectedMovie, handleErrors } from './utilities';
+import getAllMovies, { handleErrors } from './utilities';
 import Error from './components/Error/Error';
 import Main from './components/Main/Main';
 import MovieDetail from './components/MovieDetail/MovieDetail';
-import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       movies: [],
-      // selectedMovieDetails: {},
       fetchStatus: 0,
       fetchError: false
     };
-  }
-
-  updateFetchStatus = (status) => {
-    return this.setState({ fetchStatus: status });
-  }
-
-  updateFetchError = (error) => {
-    return this.setState({ fetchError: error });
   }
 
   componentDidMount = () => {
@@ -34,18 +25,6 @@ class App extends Component {
       })
       .then((movieFetchData) => this.setState({ movies: movieFetchData.movies }))
       .catch(() => this.setState({ fetchError: true }));
-  }
-
-  displayMovieDetail = (id) => {
-    // display placeholder?
-    // getSelectedMovie(id)
-    //   .then((response) => {
-    //     this.setState({ fetchStatus: response.status });
-    //     return handleErrors(response);
-    //   })
-    //   .then((movieData) => this.setState({ selectedMovieDetails: movieData.movie }))
-    //   .catch(() => this.setState({ fetchError: true }))
-      // .then(this.setState({ fetchError: true, fetchStatus: 404 })) //to test errors on click
   }
 
   resetHome = () => {
@@ -78,28 +57,31 @@ class App extends Component {
   }
 
   render() {
+    const { movies } = this.state;
+
     return (
       <div>
         <Nav resetHome={this.resetHome} />
         <Switch>
           <Route exact path="/">
-            <Main
-              movies={this.state.movies}
-              displayMovieDetail={this.displayMovieDetail}
-            />
+            <Main movies={movies} />
           </Route>
-          <Route path="/:id" render={({ match }) => {
-            const id = parseInt(match.params.id);
-            const matchedMovie = this.state.movies.find(movie => movie.id === id);
+          <Route
+            path="/:id"
+            render={({ match }) => {
+              const id = parseInt(match.params.id, 10);
+              const matchedMovie = movies.find((movie) => movie.id === id);
 
-            const selectedMovie = this.state.movies.length ? matchedMovie : { id: id };
+              const selectedMovie = movies.length ? matchedMovie : { id };
 
-            return (<MovieDetail 
-              {...selectedMovie} 
-              updateFetchStatus={this.updateFetchStatus} 
-              updateFetchError={this.updateFetchError} 
-            />)
-          }} />
+              return (
+                <MovieDetail
+                  {...selectedMovie}
+                  updateFetchStatus={(key, value) => this.setState({ [key]: value })}
+                />
+              );
+            }}
+          />
         </Switch>
       </div>
     );

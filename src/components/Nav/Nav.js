@@ -1,8 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import homeIcon from '../../home.svg';
 import searchIcon from '../../search.svg';
 import './Nav.css';
-import { Link } from 'react-router-dom';
 
 const Nav = ({ resetHome }) => {
   return (

@@ -1,24 +1,25 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import '../../../node_modules/slick-carousel/slick/slick.css';
 import '../../../node_modules/slick-carousel/slick/slick-theme.css';
 import './Carousel.css';
 import Hero from '../Hero/Hero';
 
-const Carousel = ({ movies, displayMovieDetail }) => {
+const Carousel = ({ movies }) => {
   const featuredFilms = movies.slice(10, 15).map((movie) => {
     return (
-      <Hero
-        title={movie.title}
-        image={movie.backdrop_path}
-        key={movie.id}
-        id={movie.id}
-        displayMovieDetail={displayMovieDetail}
-      />
+      <Link to={`/${movie.id}`} key={movie.id}>
+        <Hero
+          title={movie.title}
+          image={movie.backdrop_path}
+          key={movie.id}
+        />
+      </Link>
     );
   });
 
-  const placeholder = <div className="hero__placeholder" key="hero-placeholder"></div>;
+  const placeholder = <div className="hero__placeholder" key="hero-placeholder" />;
 
   const settings = {
     dots: true,

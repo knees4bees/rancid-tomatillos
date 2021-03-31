@@ -2,7 +2,7 @@ import React from 'react';
 import Movie from '../Movie/Movie';
 import './Movies.css';
 
-const Movies = ({ movies, displayMovieDetail }) => {
+const Movies = ({ movies }) => {
   let movieCards = [];
 
   if (movies.length) {
@@ -12,18 +12,16 @@ const Movies = ({ movies, displayMovieDetail }) => {
         title={movie.title}
         id={movie.id}
         key={movie.id}
-        displayMovieDetail={displayMovieDetail}
       />
     ));
   } else {
     for (let i = 0; i < 5; i++) {
-      movieCards.push(<div className="movie" key={i}><div className="movie__poster--placeholder"></div></div>);
+      movieCards.push(<div className="movie" key={i}><div className="movie__poster--placeholder" /></div>);
     }
   }
 
   return (
     <div className="movies-container">
-      {/* {!movieCards.length < 1 && <div>boxes</div>} */}
       {movieCards}
     </div>
   );
