@@ -1,11 +1,12 @@
 import React from 'react';
 import './Movie.css';
+import { Link } from 'react-router-dom';
 
-const Movie = ({ poster, title, id, displayMovieDetail }) => {
+const Movie = ({ poster, title, id }) => {
   return (
-    <button className="movie" onClick={() => displayMovieDetail(id)}>
+    <Link to={`/${id}`} className="movie">
       <img className="movie__poster" src={poster} alt={title} />
-    </button>
+    </Link>
   );
 };
 
