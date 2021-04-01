@@ -67,7 +67,7 @@ class App extends Component {
             <Main movies={movies} />
           </Route>
           <Route
-            path="/:id"
+            exact path="/:id"
             render={({ match }) => {
               const id = parseInt(match.params.id, 10);
               const matchedMovie = movies.find((movie) => movie.id === id);
