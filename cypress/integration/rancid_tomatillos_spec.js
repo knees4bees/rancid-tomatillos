@@ -10,7 +10,7 @@ describe("Rancid Tomatillos", () => {
   })
 
   it("Should see a navigation bar", () => {
-    cy.get('nav')
+    cy.get('nav h1')
       .contains('Rancid Tomatillos')
       .get('img')
       .should('have.class', 'nav-bar__search')
@@ -39,6 +39,18 @@ describe("Rancid Tomatillos", () => {
       .should('have.attr', "href")
   });
 
+  it('Should be able to click on a movie to see its details', () => {
+    cy.fixture('mockMovieData').then(( data ) => {
+      cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/632618', {
+        statusCode: 200,
+        body:  data
+      })
+    })
+      .get('.movie[href="/632618"]').click()
+      .location('pathname').should('eq', '/632618')
+      .get('.movie-detail')
+      .get('h2').contains('Crimes That Bind')
+  });
 })
 
 describe('Movie details page', () => {
@@ -73,5 +85,7 @@ describe('Movie details page', () => {
       .get('p').contains('change her life forever')
       .get('button')
   })
+
+
 
 })
