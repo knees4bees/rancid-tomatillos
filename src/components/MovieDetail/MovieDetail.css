@@ -64,6 +64,10 @@
   background-clip: text;
 }
 
+.fa-star::before {
+  content:"\f005\f005\f005\f005\f005"
+}
+
 .movie-card__details__run-time {
   display: inline-block;
   margin-top: 47px;
