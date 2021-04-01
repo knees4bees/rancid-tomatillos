@@ -37,7 +37,7 @@ class MovieDetail extends Component {
     const ratingStyle = {
       background: `linear-gradient(to right, #ffd000 ${percentage}%, #cfe2f7d8 ${percentage}%)`
     };
-    const stars = Array(5).fill().map((element, index) => <span className="fa fa-star" key={index}/>)
+    const stars = Array(5).fill().map((element, index) => <span className="fa fa-star" key={index} />)
     
     return (
       <main className="movie-detail">

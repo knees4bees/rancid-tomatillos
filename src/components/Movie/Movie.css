@@ -29,3 +29,10 @@
   border-radius: 3px;
   background-color: rgb(3, 3, 40);
 }
+
+@media screen and (max-width: 600px) {
+  .movie__poster {
+    height: 250px;
+  }
+}
+
