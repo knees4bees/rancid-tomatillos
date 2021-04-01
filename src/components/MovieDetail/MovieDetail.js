@@ -38,6 +38,7 @@ class MovieDetail extends Component {
       background: `linear-gradient(to right, #ffd000 ${percentage}%, #cfe2f7d8 ${percentage}%)`
     };
     const stars = Array(5).fill().map((element, index) => <span className="fa fa-star" key={index}/>)
+    
     return (
       <main className="movie-detail">
         <section className="movie-card__details">
