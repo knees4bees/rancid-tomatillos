@@ -1,4 +1,4 @@
-describe("Rancid Tomatillos", () => {
+describe('Rancid Tomatillos', () => {
   beforeEach(() => {
     cy.fixture('mockData').then(( data ) => {
       cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
@@ -9,7 +9,7 @@ describe("Rancid Tomatillos", () => {
       .visit('http://localhost:3000/')
   })
 
-  it("Should see a navigation bar", () => {
+  it('Should see a navigation bar', () => {
     cy.get('nav h1')
       .contains('Rancid Tomatillos')
       .get('img')
@@ -36,7 +36,7 @@ describe("Rancid Tomatillos", () => {
   it('Should have a list of available movies', () => {
     cy.get('.movies-container')
       .get('.movie')
-      .should('have.attr', "href")
+      .should('have.attr', 'href')
   });
 
   it('Should be able to click on a movie to see its details', () => {
@@ -64,7 +64,7 @@ describe('Movie details page', () => {
       .visit('http://localhost:3000/632618')
   });
 
-  it("Should see a navigation bar", () => {
+  it('Should see a navigation bar', () => {
     cy.get('nav')
       .contains('Rancid Tomatillos')
       .get('img')
@@ -86,6 +86,9 @@ describe('Movie details page', () => {
       .get('button')
   })
 
-
+  it('Should be able to travel back to the home page', () => {
+    cy.get('.nav-bar__home').click()
+      .location('pathname').should('eq', '/')
+  })
 
 })
