@@ -18,7 +18,6 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    console.log("TEst")
     getAllMovies()
       .then((response) => {
         this.setState({ fetchStatus: response.status });
@@ -66,7 +65,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={() => <Main movies={movies} />} />
           <Route
-            exact path="/:id"
+            exact path="/movies/:id"
             render={({ match }) => {
               const id = parseInt(match.params.id, 10);
               const matchedMovie = movies.find((movie) => movie.id === id);
@@ -81,6 +80,7 @@ class App extends Component {
               );
             }}
           />
+          <Route path="/" render={() => <Error message={'Sorry, we couldn\'t find that page.'} />} />
         </Switch>
       </div>
     );
