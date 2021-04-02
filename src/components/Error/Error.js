@@ -4,6 +4,7 @@ import './Error.css';
 const Error = ({ fetchStatus }) => {
   let message;
 
+  console.log('fetchStatus: ', fetchStatus);
   switch (fetchStatus) {
     case 404:
       message = 'Page not found.';

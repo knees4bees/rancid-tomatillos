@@ -92,3 +92,46 @@ describe('Movie details page', () => {
   })
 
 })
+
+describe('Error handling', () => {
+  it('Should display an error message when visiting a nonexistent URL', () => {
+    cy.fixture('mockData').then(( data ) => {
+      cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+      body:  data
+      })
+    })
+      .visit('http://localhost:3000/foo')
+      .get('.error__message')
+      .contains('Something went wrong')
+  })
+
+
+  it('Should display a specific error message when fetch yields a 404 status', () => {
+    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+      statusCode: 404,
+    })
+      .visit('http://localhost:3000/')
+      .get('.error__message')
+      .contains('Page not found')
+  })
+
+  it('Should display a specific error message when fetch yields a 500 status', () => {
+    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/', {
+      statusCode: 500,
+      // forceNetworkError: true
+    })
+      .visit('http://localhost:3000/')
+      .get('.error__message')
+      .contains('Please try again later')
+  })
+
+  it('Should display an error message when there is a network error', () => {
+    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/', {
+      forceNetworkError: true
+    })
+      .visit('http://localhost:3000/')
+      .get('.error__message')
+      .contains('Something went wrong')
+  })
+
+})
