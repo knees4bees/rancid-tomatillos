@@ -14,7 +14,6 @@ class App extends Component {
       movies: [],
       fetchStatus: 200,
       fetchError: false,
-      cats: true
     };
   }
 
@@ -27,50 +26,22 @@ class App extends Component {
         return handleErrors(response);
       })
       .then((movieFetchData) => this.setState({ movies: movieFetchData.movies }))
-      .catch(() => {
-        this.setState({ fetchError: true });
-        console.log('hey I got caught');
-        <Redirect to='/error' />
-      });
+      .catch(() => this.setState({ fetchError: true }));
   }
 
   resetHome = () => this.setState({ fetchError: false });
 
-  // redirect = () => {
-  //   if (this.state.fetchError) {
-  //     console.log("all the state: ", this.state);
-  //     return <Redirect to='/error' />
-  //   }
-  // };
-
   render() {
     const { movies } = this.state;
-
-    // if (this.state.fetchError) {
-    //   console.log("all the state: ", this.state);
-    //   <Redirect to="/error" />
-    // }
-
-    // if (this.state.cats) {
-    //   console.log("all the state: ", this.state);
-    //   return <Redirect to="/cats" />
-    // }
-
-    // this.redirect();
 
     return (
       <div>
         <Nav resetHome={this.resetHome} />
+        {this.state.fetchError && 
+          <Error fetchStatus={this.state.fetchStatus} />
+        }
         <Switch>
-          <Route 
-            exact path="/"
-            render={() => {
-              if (this.state.fetchError) {
-                return <Error fetchStatus={this.state.fetchStatus} />
-              }
-              return <Main movies={movies} />
-            }} 
-          />
+          <Route exact path="/" render={() => <Main movies={movies} />} />
           <Redirect exact from="/movies" to="/" />
           <Route
             exact path="/movies/:id"
@@ -88,7 +59,6 @@ class App extends Component {
               );
             }}
           />
-          {/* <Route path="/error" render={() => <Error fetchStatus={this.state.fetchStatus} />} /> */}
           <Route render={() => <Error fetchStatus={this.state.fetchStatus} />} />
         </Switch>
       </div>
