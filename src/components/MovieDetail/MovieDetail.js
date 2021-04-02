@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './MovieDetail.css';
 import { BsPlayFill } from 'react-icons/bs';
 import { getSelectedMovie, handleErrors } from '../../utilities';
-import { Redirect } from 'react-router';
 
 class MovieDetail extends Component {
   constructor(props) {
@@ -34,11 +33,12 @@ class MovieDetail extends Component {
       backdrop_path,
       poster_path
     } = this.state;
+
     const percentage = average_rating * 10;
     const ratingStyle = {
       background: `linear-gradient(to right, #ffd000 ${percentage}%, #cfe2f7d8 ${percentage}%)`
     };
-    
+
     return (
       <main className="movie-detail">
         <section className="movie-card__details">
@@ -48,7 +48,8 @@ class MovieDetail extends Component {
           <div
             className="movie-card__details__rating fa fa-star"
             style={ratingStyle}
-          /><br />
+          />
+          <br />
           <p className="movie-card__details__tagline">{tagline}</p>
           <p className="movie-card__details__run-time">{runtime} min</p>
           <p className="movie-card__details__genre">{genres?.join(', ')}</p>

@@ -13,16 +13,14 @@ class App extends Component {
     this.state = {
       movies: [],
       fetchStatus: 200,
-      fetchError: false,
+      fetchError: false
     };
   }
 
   componentDidMount = () => {
     getAllMovies()
       .then((response) => {
-        console.log("response status: ", response.status);
         this.setState({ fetchStatus: response.status });
-        console.log("fetchStatus in state: ", this.state.fetchStatus);
         return handleErrors(response);
       })
       .then((movieFetchData) => this.setState({ movies: movieFetchData.movies }))
@@ -32,19 +30,18 @@ class App extends Component {
   resetHome = () => this.setState({ fetchError: false });
 
   render() {
-    const { movies } = this.state;
+    const { movies, fetchError, fetchStatus } = this.state;
 
     return (
       <div>
         <Nav resetHome={this.resetHome} />
-        {this.state.fetchError && 
-          <Error fetchStatus={this.state.fetchStatus} />
-        }
+        {fetchError && <Redirect to="/error" fetchStatus={fetchStatus} />}
         <Switch>
           <Route exact path="/" render={() => <Main movies={movies} />} />
           <Redirect exact from="/movies" to="/" />
           <Route
-            exact path="/movies/:id"
+            exact
+            path="/movies/:id"
             render={({ match }) => {
               const id = parseInt(match.params.id, 10);
               const matchedMovie = movies.find((movie) => movie.id === id);
@@ -59,7 +56,7 @@ class App extends Component {
               );
             }}
           />
-          <Route render={() => <Error fetchStatus={this.state.fetchStatus} />} />
+          <Route render={() => <Error fetchStatus={fetchStatus} />} />
         </Switch>
       </div>
     );
