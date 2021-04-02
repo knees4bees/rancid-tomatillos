@@ -46,8 +46,8 @@ describe('Rancid Tomatillos', () => {
         body:  data
       })
     })
-      .get('.movie[href="/632618"]').click()
-      .location('pathname').should('eq', '/632618')
+      .get('.movie[href="/movies/632618"]').click()
+      .location('pathname').should('eq', '/movies/632618')
       .get('.movie-detail')
       .get('h2').contains('Crimes That Bind')
   });
@@ -61,7 +61,7 @@ describe('Movie details page', () => {
         body:  data
       })
     })
-      .visit('http://localhost:3000/632618')
+      .visit('http://localhost:3000/movies/632618')
   });
 
   it('Should see a navigation bar', () => {
