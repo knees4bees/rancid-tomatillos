@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './MovieDetail.css';
 import { BsPlayFill } from 'react-icons/bs';
 import { getSelectedMovie, handleErrors } from '../../APICalls';
-import { formatDate } from '../../utilities'
+import { formatDate, formatGenres } from '../../utilities'
 
 class MovieDetail extends Component {
   constructor(props) {
@@ -36,7 +36,8 @@ class MovieDetail extends Component {
           releaseDate: formatDate(movie.release_date),
           overview: movie.overview,
           runtime: movie.runtime,
-          tagline: movie.tagline
+          tagline: movie.tagline,
+          genres: formatGenres(movie.genres)
         });
       })
       .catch(() => this.props.updateFetchStatus('fetchError', true));
@@ -65,7 +66,7 @@ class MovieDetail extends Component {
         <section className="movie-card__details">
           <img src={poster} className="movie-card__details__poster" />
           <h2 className="movie-card__details__title">{title}</h2>
-          <h3 className="movie-card__details__date">{releaseDate?.split('-')[0]}</h3>
+          <h3 className="movie-card__details__date">{releaseDate}</h3>
           <div
             className="movie-card__details__rating fa fa-star"
             style={ratingStyle}
@@ -73,7 +74,7 @@ class MovieDetail extends Component {
           <br />
           <p className="movie-card__details__tagline">{tagline}</p>
           <p className="movie-card__details__run-time">{runtime} min</p>
-          <p className="movie-card__details__genre">{genres?.join(', ')}</p>
+          <p className="movie-card__details__genre">{genres}</p>
           <p className="movie-card__details__overview">{overview}</p>
           <button className="movie-card__details__btn"><BsPlayFill className="icon" />Watch Trailer</button>
         </section>
