@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import '../../../node_modules/slick-carousel/slick/slick.css';
 import '../../../node_modules/slick-carousel/slick/slick-theme.css';
@@ -7,15 +6,15 @@ import './Carousel.css';
 import Hero from '../Hero/Hero';
 
 const Carousel = ({ movies }) => {
-  const featuredFilms = movies.slice(10, 15).map((movie) => {
+  const featuredFilms = movies.slice(15, 20).map((movie) => {
+    const { id, title, backdrop_path } = movie
     return (
-      <Link to={`/${movie.id}`} key={movie.id}>
-        <Hero
-          title={movie.title}
-          image={movie.backdrop_path}
-          key={movie.id}
-        />
-      </Link>
+      <Hero
+        title={title}
+        image={backdrop_path}
+        key={id}
+        id={id}
+      />
     );
   });
 

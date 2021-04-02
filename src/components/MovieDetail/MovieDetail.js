@@ -37,7 +37,7 @@ class MovieDetail extends Component {
     const ratingStyle = {
       background: `linear-gradient(to right, #ffd000 ${percentage}%, #cfe2f7d8 ${percentage}%)`
     };
-
+    
     return (
       <main className="movie-detail">
         <section className="movie-card__details">
@@ -45,16 +45,9 @@ class MovieDetail extends Component {
           <h2 className="movie-card__details__title">{title}</h2>
           <h3 className="movie-card__details__date">{release_date?.split('-')[0]}</h3>
           <div
-            className="movie-card__details__rating"
+            className="movie-card__details__rating fa fa-star"
             style={ratingStyle}
-          >
-            <span className="fa fa-star" />
-            <span className="fa fa-star" />
-            <span className="fa fa-star" />
-            <span className="fa fa-star" />
-            <span className="fa fa-star" />
-          </div>
-          <br />
+          /><br />
           <p className="movie-card__details__tagline">{tagline}</p>
           <p className="movie-card__details__run-time">{runtime} min</p>
           <p className="movie-card__details__genre">{genres?.join(', ')}</p>

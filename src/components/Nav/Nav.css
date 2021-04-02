@@ -31,3 +31,26 @@
   font-family: 'Pacifico', cursive;
   height: fit-content;
 }
+
+@media screen and (max-width: 600px) {
+  .nav-bar {
+    height: 40px;
+  }
+  
+  .nav-bar__header {
+    font-size: 30px;
+  }
+
+  .nav-bar__search {
+    margin-right: 10px;
+    height: 25px;
+  }
+
+  .nav-bar__home--img {
+    height: 25px;
+  }
+
+  .nav-bar__home {
+    margin-left: 10px;
+  }
+}
