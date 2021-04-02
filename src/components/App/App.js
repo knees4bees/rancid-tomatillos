@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import Nav from '../Nav/Nav';
-import getAllMovies, { handleErrors } from '../../utilities';
+import getAllMovies, { handleErrors } from '../../APICalls';
 import Error from '../Error/Error';
 import Main from '../Main/Main';
 import MovieDetail from '../MovieDetail/MovieDetail';
