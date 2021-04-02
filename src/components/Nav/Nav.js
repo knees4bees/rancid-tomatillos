@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import homeIcon from '../../home.svg';
-import searchIcon from '../../search.svg';
+import homeIcon from '../../assets/home.svg';
+import searchIcon from '../../assets/search.svg';
 import './Nav.css';
 
 const Nav = ({ resetHome }) => {

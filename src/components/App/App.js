@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import Nav from './components/Nav/Nav';
-import getAllMovies, { handleErrors } from './utilities';
-import Error from './components/Error/Error';
-import Main from './components/Main/Main';
-import MovieDetail from './components/MovieDetail/MovieDetail';
+import Nav from '../Nav/Nav';
+import getAllMovies, { handleErrors } from '../../utilities';
+import Error from '../Error/Error';
+import Main from '../Main/Main';
+import MovieDetail from '../MovieDetail/MovieDetail';
 
 class App extends Component {
   constructor() {
