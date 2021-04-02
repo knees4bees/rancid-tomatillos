@@ -18,6 +18,7 @@ class App extends Component {
   }
 
   componentDidMount = () => {
+    console.log("TEst")
     getAllMovies()
       .then((response) => {
         this.setState({ fetchStatus: response.status });
@@ -63,9 +64,7 @@ class App extends Component {
       <div>
         <Nav resetHome={this.resetHome} />
         <Switch>
-          <Route exact path="/">
-            <Main movies={movies} />
-          </Route>
+          <Route exact path="/" render={() => <Main movies={movies} />} />
           <Route
             exact path="/:id"
             render={({ match }) => {
