@@ -27,39 +27,12 @@ class App extends Component {
       .catch(() => this.setState({ fetchError: true }));
   }
 
-  resetHome = () => {
-    this.setState({
-      fetchError: false,
-      fetchStatus: 200
-    });
-  }
-
-  // renderError = (fetchStatus) => {
-  //   let message;
-
-  //   switch (fetchStatus) {
-  //     case 0:
-  //       message = 'Oops! Something went wrong. Please check your internet connection.';
-  //       break;
-  //     case 404:
-  //       message = 'Page not found.';
-  //       break;
-  //     case 422:
-  //       message = 'Invalid request.';
-  //       break;
-  //     default:
-  //       message = 'Oops! Something went wrong. Please try again.';
-  //   }
-
-  //   return (
-  //     <Error message={message} />
-  //   );
-  // }
+  resetHome = () => this.setState({ fetchError: false });
 
   render() {
     const { movies } = this.state;
 
-    if (this.state.fetchStatus !== 200) {
+    if (this.state.fetchError) {
       return <Redirect to="/error" />
     }
 

@@ -20,7 +20,6 @@ class MovieDetail extends Component {
       })
       .then((movieData) => this.setState({ ...movieData.movie }))
       .catch(() => this.props.updateFetchStatus('fetchError', true));
-      // .catch(() => <Redirect to="/error" />);
   }
 
   render() {
