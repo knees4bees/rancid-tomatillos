@@ -16,6 +16,11 @@ describe('Rancid Tomatillos', () => {
       .should('have.class', 'nav-bar__search')
   });
 
+  it('Should not see a home button', () => {
+    cy.get('.nav-bar__home')
+      .should('not.be.visible')
+  });
+
   it('Should see a carousel', () => {
     cy.get('.slick-current')
       .contains('The Devil')
