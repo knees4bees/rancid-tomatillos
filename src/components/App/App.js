@@ -20,7 +20,9 @@ class App extends Component {
   componentDidMount = () => {
     getAllMovies()
       .then((response) => {
+        console.log("response status: ", response.status);
         this.setState({ fetchStatus: response.status });
+        console.log("fetchStatus in state: ", this.state.fetchStatus);
         return handleErrors(response);
       })
       .then((movieFetchData) => this.setState({ movies: movieFetchData.movies }))
@@ -41,7 +43,7 @@ class App extends Component {
         <Nav resetHome={this.resetHome} />
         <Switch>
           <Route exact path="/" render={() => <Main movies={movies} />} />
-          <Route exact path="/movies" render={() => <Redirect to="/" />} />
+          <Redirect exact from="/movies" to="/" />
           <Route
             exact path="/movies/:id"
             render={({ match }) => {
@@ -59,7 +61,7 @@ class App extends Component {
             }}
           />
           <Route path="/error" render={() => <Error fetchStatus={this.state.fetchStatus} />} />
-          <Route path="/" render={() => <Error message={'Sorry, we couldn\'t find that page.'} />} />
+          <Route path="/" render={() => <Error fetchStatus={this.state.fetchStatus} />} />
         </Switch>
       </div>
     );
