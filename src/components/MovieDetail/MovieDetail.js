@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './MovieDetail.css';
 import { BsPlayFill } from 'react-icons/bs';
 import { getSelectedMovie, handleErrors } from '../../utilities';
+import { Redirect } from 'react-router';
 
 class MovieDetail extends Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class MovieDetail extends Component {
       })
       .then((movieData) => this.setState({ ...movieData.movie }))
       .catch(() => this.props.updateFetchStatus('fetchError', true));
+      // .catch(() => <Redirect to="/error" />);
   }
 
   render() {

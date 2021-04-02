@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import Nav from '../Nav/Nav';
 import getAllMovies, { handleErrors } from '../../utilities';
@@ -12,7 +12,7 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      fetchStatus: 0,
+      fetchStatus: 200,
       fetchError: false
     };
   }
@@ -30,34 +30,38 @@ class App extends Component {
   resetHome = () => {
     this.setState({
       fetchError: false,
-      fetchStatus: 0
+      fetchStatus: 200
     });
   }
 
-  renderError = (fetchStatus) => {
-    let message;
+  // renderError = (fetchStatus) => {
+  //   let message;
 
-    switch (fetchStatus) {
-      case 0:
-        message = 'Oops! Something went wrong. Please check your internet connection.';
-        break;
-      case 404:
-        message = 'Page not found.';
-        break;
-      case 422:
-        message = 'Invalid request.';
-        break;
-      default:
-        message = 'Oops! Something went wrong. Please try again.';
-    }
+  //   switch (fetchStatus) {
+  //     case 0:
+  //       message = 'Oops! Something went wrong. Please check your internet connection.';
+  //       break;
+  //     case 404:
+  //       message = 'Page not found.';
+  //       break;
+  //     case 422:
+  //       message = 'Invalid request.';
+  //       break;
+  //     default:
+  //       message = 'Oops! Something went wrong. Please try again.';
+  //   }
 
-    return (
-      <Error message={message} />
-    );
-  }
+  //   return (
+  //     <Error message={message} />
+  //   );
+  // }
 
   render() {
     const { movies } = this.state;
+
+    if (this.state.fetchStatus !== 200) {
+      return <Redirect to="/error" />
+    }
 
     return (
       <div>
@@ -80,6 +84,7 @@ class App extends Component {
               );
             }}
           />
+          <Route path="/error" render={() => <Error fetchStatus={this.state.fetchStatus} />} />
           <Route path="/" render={() => <Error message={'Sorry, we couldn\'t find that page.'} />} />
         </Switch>
       </div>
