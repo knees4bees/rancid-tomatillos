@@ -41,6 +41,7 @@ class App extends Component {
         <Nav resetHome={this.resetHome} />
         <Switch>
           <Route exact path="/" render={() => <Main movies={movies} />} />
+          <Route exact path="/movies" render={() => <Redirect to="/" />} />
           <Route
             exact path="/movies/:id"
             render={({ match }) => {
