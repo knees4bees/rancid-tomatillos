@@ -7,7 +7,7 @@ import Hero from '../Hero/Hero';
 
 const Carousel = ({ movies }) => {
   const featuredFilms = movies.slice(15, 20).map((movie) => {
-    const { id, title, backdrop_path } = movie
+    const { id, title, backdrop_path } = movie;
     return (
       <Hero
         title={title}

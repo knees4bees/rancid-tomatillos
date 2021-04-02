@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import Nav from '../Nav/Nav';
 import getAllMovies, { handleErrors } from '../../utilities';
@@ -12,13 +12,12 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      fetchStatus: 0,
+      fetchStatus: 200,
       fetchError: false
     };
   }
 
   componentDidMount = () => {
-    console.log("TEst")
     getAllMovies()
       .then((response) => {
         this.setState({ fetchStatus: response.status });
@@ -28,45 +27,21 @@ class App extends Component {
       .catch(() => this.setState({ fetchError: true }));
   }
 
-  resetHome = () => {
-    this.setState({
-      fetchError: false,
-      fetchStatus: 0
-    });
-  }
-
-  renderError = (fetchStatus) => {
-    let message;
-
-    switch (fetchStatus) {
-      case 0:
-        message = 'Oops! Something went wrong. Please check your internet connection.';
-        break;
-      case 404:
-        message = 'Page not found.';
-        break;
-      case 422:
-        message = 'Invalid request.';
-        break;
-      default:
-        message = 'Oops! Something went wrong. Please try again.';
-    }
-
-    return (
-      <Error message={message} />
-    );
-  }
+  resetHome = () => this.setState({ fetchError: false });
 
   render() {
-    const { movies } = this.state;
+    const { movies, fetchError, fetchStatus } = this.state;
 
     return (
       <div>
         <Nav resetHome={this.resetHome} />
+        {fetchError && <Redirect to="/error" fetchStatus={fetchStatus} />}
         <Switch>
           <Route exact path="/" render={() => <Main movies={movies} />} />
+          <Redirect exact from="/movies" to="/" />
           <Route
-            exact path="/:id"
+            exact
+            path="/movies/:id"
             render={({ match }) => {
               const id = parseInt(match.params.id, 10);
               const matchedMovie = movies.find((movie) => movie.id === id);
@@ -81,6 +56,7 @@ class App extends Component {
               );
             }}
           />
+          <Route render={() => <Error fetchStatus={fetchStatus} />} />
         </Switch>
       </div>
     );
