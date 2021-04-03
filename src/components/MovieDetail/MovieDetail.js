@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './MovieDetail.css';
 import { BsPlayFill } from 'react-icons/bs';
-import { getSelectedMovie, handleErrors } from '../../APICalls';
-import { formatDate, formatGenres } from '../../utilities'
-import { Trailer } from '../Trailer/Trailer'
+import { getSelectedMovie, handleErrors, getTrailerKey } from '../../APICalls';
+import { formatDate, formatGenres } from '../../utilities';
+import Trailer from '../Trailer/Trailer';
 
 class MovieDetail extends Component {
   constructor(props) {
@@ -15,7 +15,8 @@ class MovieDetail extends Component {
       poster: props.poster_path,
       title: props.title,
       releaseDate: formatDate(props.release_date),
-      trailerKey: ''
+      trailerKey: '',
+      displayTrailer: false
     };
   }
 
@@ -43,10 +44,12 @@ class MovieDetail extends Component {
         });
       })
       .catch(() => this.props.updateFetchStatus('fetchError', true));
+    getTrailerKey(id)
+      .then(data => data.videos.length && this.setState({trailerKey: data.videos[0].key}))
   }
 
   openTrailer = () => {
-    
+    this.setState({displayTrailer: true})
   }
 
   render() {
@@ -59,7 +62,8 @@ class MovieDetail extends Component {
       genres,
       overview,
       backdrop,
-      poster
+      poster,
+      trailerKey
     } = this.state;
 
     const percentage = averageRating * 10;
@@ -68,6 +72,7 @@ class MovieDetail extends Component {
     };
 
     return (
+      <>
       <main className="movie-detail">
         <section className="movie-card__details">
           <img src={poster} className="movie-card__details__poster" />
@@ -82,12 +87,22 @@ class MovieDetail extends Component {
           <p className="movie-card__details__run-time">{runtime} min</p>
           <p className="movie-card__details__genre">{genres}</p>
           <p className="movie-card__details__overview">{overview}</p>
-          <button className="movie-card__details__btn" onClick={this.openTrailer}><BsPlayFill className="icon" />Watch Trailer</button>
+          {trailerKey &&
+            <button 
+              className="movie-card__details__btn" 
+              onClick={this.openTrailer}
+            >
+              <BsPlayFill className="icon" />
+              Watch Trailer
+            </button>
+          }
         </section>
         <div className="movie-backdrop">
           <img className="movie-backdrop__image" src={backdrop} alt={title} />
         </div>
       </main>
+      {this.state.displayTrailer && <Trailer trailerKey={trailerKey} />}
+      </>
     );
   }
 }

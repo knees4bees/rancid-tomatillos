@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Trailer = ({ key }) => {
+const Trailer = ({ trailerKey }) => {
   return (
     <div>
-      <iframe width="560" height="315" src={`https://www.youtube.com/embed/${key}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="560" height="315" src={`https://www.youtube.com/embed/${trailerKey}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   )
 }
 
-export default Trailer
+export default Trailer;
