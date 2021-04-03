@@ -13,7 +13,8 @@ class MovieDetail extends Component {
       backdrop: props.backdrop_path,
       poster: props.poster_path,
       title: props.title,
-      releaseDate: formatDate(props.release_date)
+      releaseDate: formatDate(props.release_date),
+      trailerKey: ''
     };
   }
 
