@@ -2,6 +2,8 @@ const getAllMovies = () => fetch('https://rancid-tomatillos.herokuapp.com/api/v2
 
 export const getSelectedMovie = (id) => fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`);
 
+export const getTrailerKey = (id) => fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`);
+
 export const handleErrors = (response) => {
   if (!response.ok) {
     throw new Error();

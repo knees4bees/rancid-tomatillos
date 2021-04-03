@@ -3,6 +3,7 @@ import './MovieDetail.css';
 import { BsPlayFill } from 'react-icons/bs';
 import { getSelectedMovie, handleErrors } from '../../APICalls';
 import { formatDate, formatGenres } from '../../utilities'
+import { Trailer } from '../Trailer/Trailer'
 
 class MovieDetail extends Component {
   constructor(props) {
@@ -44,6 +45,10 @@ class MovieDetail extends Component {
       .catch(() => this.props.updateFetchStatus('fetchError', true));
   }
 
+  openTrailer = () => {
+    
+  }
+
   render() {
     const {
       averageRating,
@@ -77,7 +82,7 @@ class MovieDetail extends Component {
           <p className="movie-card__details__run-time">{runtime} min</p>
           <p className="movie-card__details__genre">{genres}</p>
           <p className="movie-card__details__overview">{overview}</p>
-          <button className="movie-card__details__btn"><BsPlayFill className="icon" />Watch Trailer</button>
+          <button className="movie-card__details__btn" onClick={this.openTrailer}><BsPlayFill className="icon" />Watch Trailer</button>
         </section>
         <div className="movie-backdrop">
           <img className="movie-backdrop__image" src={backdrop} alt={title} />
