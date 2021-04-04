@@ -6,6 +6,7 @@ import getAllMovies, { handleErrors } from '../../APICalls';
 import Error from '../Error/Error';
 import Main from '../Main/Main';
 import MovieDetail from '../MovieDetail/MovieDetail';
+import SearchResults from '../SearchResults/SearchResults';
 
 class App extends Component {
   constructor() {
@@ -28,7 +29,7 @@ class App extends Component {
       .catch(() => this.setState({ fetchError: true }));
   }
 
-  resetHome = () => this.setState({ fetchError: false });
+  resetHome = () => this.setState({ fetchError: false, filteredMovies: [] });
 
   search = (searchTerm) => {
     const searchTerms = searchTerm.toLowerCase().split(' ').filter(term => term);
@@ -38,13 +39,16 @@ class App extends Component {
       const newMatches = this.state.movies.filter(movie => movie.title.toLowerCase().includes(term));
       matches = [...matches, ...newMatches];
     })
-    matches = [...new Set(matches)];
+    const finalMatches = [...new Set(matches)];
+    console.log(finalMatches);
 
-    this.setState({filteredMovies: matches});
+    this.setState({ filteredMovies: finalMatches });
+    // this.setState({ filteredMovies: 'hello' });
+    console.log(this.state.filteredMovies);
   };
 
   render() {
-    const { movies, fetchError, fetchStatus } = this.state;
+    const { movies, fetchError, fetchStatus, filteredMovies } = this.state;
 
     return (
       <div className="app">
@@ -53,6 +57,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={() => <Main movies={movies} />} />
           <Redirect exact from="/movies" to="/" />
+          <Route exact path="/search" render={() => <SearchResults movies={filteredMovies} />} />
           <Route
             exact
             path="/movies/:id"

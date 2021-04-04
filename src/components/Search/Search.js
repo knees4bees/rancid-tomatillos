@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import './Search.css';
 import { BiSearch } from 'react-icons/bi';
 
@@ -12,10 +13,15 @@ class Search extends Component {
   }
 
   handleClick = () => {
-    this.state.searchTerm && this.props.search(this.state.searchTerm);
-    this.clearInput();
+    // this.state.searchTerm && this.props.search(this.state.searchTerm);
+    if (this.state.searchTerm) {
+      this.props.search(this.state.searchTerm);
+      // window.location = '/search';
+    }
     this.setState({isActive: !this.state.isActive});
+    // this.clearInput();
   }
+
 
   handleChange = event => this.setState({searchTerm: event.target.value});
 
@@ -26,9 +32,16 @@ class Search extends Component {
   render() {
     return (
       <div className="search">
-        <button className='search__button' onClick={this.handleClick}>
-          <BiSearch className='nav-bar__search' />
-        </button>
+        {/* {this.state.searchTerm &&  */}
+          <NavLink to="/search" isActive={() => {this.state.searchTerm && true}} className='search__button' onClick={this.handleClick}>
+            <BiSearch className='nav-bar__search' />
+          </NavLink>
+        {/* } */}
+        {/* {!this.state.searchTerm && 
+          <button className='search__button' onClick={this.handleClick}>
+            <BiSearch className='nav-bar__search' />
+          </button>
+        } */}
         <label>
         {this.state.isActive && 
           <input 
