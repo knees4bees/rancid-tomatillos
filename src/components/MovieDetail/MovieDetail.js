@@ -22,7 +22,7 @@ class MovieDetail extends Component {
 
   componentDidMount = () => {
     const { id } = this.state;
-
+    
     getSelectedMovie(id)
       .then((response) => {
         this.props.updateFetchStatus('fetchStatus', response.status);

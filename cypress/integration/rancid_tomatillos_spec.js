@@ -1,12 +1,12 @@
 describe('Rancid Tomatillos', () => {
   beforeEach(() => {
     cy.fixture('mockData').then(( data ) => {
-      cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+      cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/632618/videos', {
       statusCode: 200,
       body:  data
     })
     })
-      .visit('http://localhost:3000/')
+      cy.visit('http://localhost:3000/')
   });
 
   it('Should see a navigation bar', () => {
@@ -45,29 +45,29 @@ describe('Rancid Tomatillos', () => {
   });
 
   it('Should be able to click on a movie to see its details', () => {
-    cy.fixture('mockMovieData').then(( data ) => {
-      cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/632618', {
+    cy.get('.movie[href="/movies/632618"]')
+    .click()
+    .fixture('mockMovieData').then(( data ) => {
+      cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/632618/', {
         statusCode: 200,
         body:  data
       })
-    })
-      .get('.movie[href="/movies/632618"]')
-      .click()
-      .location('pathname').should('eq', '/movies/632618')
-      .get('.movie-detail')
-      .get('h2').contains('Crimes That Bind')
+    }) 
+    .location('pathname').should('eq', '/movies/632618')
+    .get('.movie-detail')
+    .get('h2').contains('Crimes That Bind')
   });
 });
 
 describe('Movie details page', () => {
   beforeEach(() => {
-    cy.fixture('mockMovieData').then(( data ) => {
-      cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/632618', {
+    cy.fixture('videos').then(( data ) => {
+      cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/632618/videos', {
         statusCode: 200,
-        body:  data
+        body: data
       })
     })
-      .visit('http://localhost:3000/movies/632618')
+      cy.visit('http://localhost:3000/movies/632618')
   });
 
   it('Should see a navigation bar', () => {
