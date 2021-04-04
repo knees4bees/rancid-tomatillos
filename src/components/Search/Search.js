@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Search.css';
 import { BiSearch } from 'react-icons/bi';
 
@@ -23,9 +23,12 @@ class Search extends Component {
           name='search' 
           placeholder='Search for you stuffs'
           value={this.state.search}
+          
           />
         </label>
       </div>
     )
   }
 }
+
+export default Search;
