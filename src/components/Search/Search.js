@@ -14,7 +14,17 @@ class Search extends Component {
   render() {
     return (
       <div className="search">
-        
+        <button className='search__button' onClick={this.handleClick}>
+          <BiSearch className='nav-bar__search' />
+        </button>
+        <label>
+         <input 
+          className={this.state.isActive ? 'search__input--active' : 'search__input'}
+          name='search' 
+          placeholder='Search for you stuffs'
+          value={this.state.search}
+          />
+        </label>
       </div>
     )
   }
