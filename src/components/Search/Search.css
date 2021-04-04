@@ -34,6 +34,10 @@
   transform: translateY(0px);
 }
 
+.search__button:focus {
+  box-shadow: 0 0 0 2px rgb(65, 25, 156);
+}
+
 
 .search__input,
 .search__input--active {
@@ -53,7 +57,7 @@
 .search__input--active {
   animation: open 250ms ease-out;
   transform-origin: right;
-  width: 300px;
+  width: 250px;
 }
 
 @keyframes open {
@@ -61,13 +65,13 @@
     width:42px
   }
   100% {
-    width: 300px
+    width: 250px
   }
 }
 
 @keyframes close {
   0% {
-    width:300px;
+    width:250px;
     opacity: 1;
   }
   100% {

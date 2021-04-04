@@ -34,7 +34,8 @@ class Search extends Component {
           name='search' 
           placeholder='Search for you stuffs'
           value={this.state.search}
-
+          onChange={this.handleChange}
+          onKeyDown={this.handleKeyDown}
           />
         </label>
       </div>
