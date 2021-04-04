@@ -33,7 +33,7 @@ class App extends Component {
     const { movies, fetchError, fetchStatus } = this.state;
 
     return (
-      <div>
+      <div className="app">
         <Nav resetHome={this.resetHome} />
         {fetchError && <Redirect to="/error" fetchStatus={fetchStatus} />}
         <Switch>

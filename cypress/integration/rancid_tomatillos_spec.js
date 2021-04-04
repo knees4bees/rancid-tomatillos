@@ -96,6 +96,17 @@ describe('Movie details page', () => {
     cy.get('.nav-bar__home').click()
       .location('pathname').should('eq', '/')
   });
+
+  it('Should be able to watch a trailer', () => {
+    cy.get('.movie-card__details__btn').click()
+      .get('.trailer').get('iframe')
+  })
+
+  it('Should be able to exit the trailer', () => {
+    cy.get('.movie-card__details__btn').click()
+      .get('.exit-btn').click()
+      .get('.trailer').should('not.exist')
+  })
 });
 
 describe('Error handling', () => {
