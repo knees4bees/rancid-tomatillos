@@ -11,6 +11,17 @@ class Search extends Component {
     }
   }
 
+  handleClick = () => {
+    this.state.search && this.clearInput();
+    this.setState({isActive: !this.state.isActive});
+  }
+
+  handleChange = event => this.setState({search: event.target.value});
+
+  handleKeyDown = event => event.key === 'Enter' && this.handleClick();
+
+  clearInput = () => this.setState({search: ''})
+
   render() {
     return (
       <div className="search">
@@ -23,7 +34,7 @@ class Search extends Component {
           name='search' 
           placeholder='Search for you stuffs'
           value={this.state.search}
-          
+
           />
         </label>
       </div>
