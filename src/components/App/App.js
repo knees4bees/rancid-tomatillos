@@ -31,11 +31,16 @@ class App extends Component {
   resetHome = () => this.setState({ fetchError: false });
 
   search = (searchTerm) => {
-    const formattedSearchTerm = searchTerm.trim().toLowerCase();
-    console.log("searchTerm: ", searchTerm);
-    const filteredMovies = this.state.movies.filter(movie => movie.title.toLowerCase().includes(formattedSearchTerm));
-    console.log("filteredMovies", filteredMovies);
-    return filteredMovies;
+    const searchTerms = searchTerm.toLowerCase().split(' ').filter(term => term);
+
+    let matches = [];
+    searchTerms.forEach(term => {
+      const newMatches = this.state.movies.filter(movie => movie.title.toLowerCase().includes(term));
+      matches = [...matches, ...newMatches];
+    })
+    matches = [...new Set(matches)];
+
+    this.setState({filteredMovies: matches});
   };
 
   render() {
