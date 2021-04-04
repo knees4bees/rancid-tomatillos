@@ -29,12 +29,16 @@ class App extends Component {
 
   resetHome = () => this.setState({ fetchError: false });
 
+  search = () => {
+    console.log('testing search');
+  };
+
   render() {
     const { movies, fetchError, fetchStatus } = this.state;
 
     return (
       <div className="app">
-        <Nav resetHome={this.resetHome} />
+        <Nav resetHome={this.resetHome} search={this.search} />
         {fetchError && <Redirect to="/error" fetchStatus={fetchStatus} />}
         <Switch>
           <Route exact path="/" render={() => <Main movies={movies} />} />

@@ -50,10 +50,6 @@
   transform-origin: left
 }
 
-.search__input {
-  opacity: 0;
-}
-
 .search__input--active {
   animation: open 250ms ease-out;
   transform-origin: right;

@@ -6,21 +6,22 @@ class Search extends Component {
   constructor() {
     super();
     this.state = {
-      search: '',
+      searchTerm: '',
       isActive: false
     }
   }
 
   handleClick = () => {
-    this.state.search && this.clearInput();
+    this.state.searchTerm && this.props.search(this.state.searchTerm);
+    this.clearInput();
     this.setState({isActive: !this.state.isActive});
   }
 
-  handleChange = event => this.setState({search: event.target.value});
+  handleChange = event => this.setState({searchTerm: event.target.value});
 
   handleKeyDown = event => event.key === 'Enter' && this.handleClick();
 
-  clearInput = () => this.setState({search: ''})
+  clearInput = () => this.setState({searchTerm: ''})
 
   render() {
     return (
@@ -29,13 +30,13 @@ class Search extends Component {
           <BiSearch className='nav-bar__search' />
         </button>
         <label>
-         <input 
-          className={this.state.isActive ? 'search__input--active' : 'search__input'}
-          name='search' 
-          placeholder='Search for you stuffs'
-          value={this.state.search}
-          onChange={this.handleChange}
-          onKeyDown={this.handleKeyDown}
+          <input 
+            className={this.state.isActive ? 'search__input--active' : 'search__input'}
+            name='searchTerm' 
+            placeholder='Search by title'
+            value={this.state.searchTerm}
+            onChange={this.handleChange}
+            onKeyDown={this.handleKeyDown}
           />
         </label>
       </div>
