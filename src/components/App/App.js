@@ -12,6 +12,7 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
+      filteredMovies: [],
       fetchStatus: 200,
       fetchError: false
     };
@@ -29,8 +30,12 @@ class App extends Component {
 
   resetHome = () => this.setState({ fetchError: false });
 
-  search = () => {
-    console.log('testing search');
+  search = (searchTerm) => {
+    const formattedSearchTerm = searchTerm.trim().toLowerCase();
+    console.log("searchTerm: ", searchTerm);
+    const filteredMovies = this.state.movies.filter(movie => movie.title.toLowerCase().includes(formattedSearchTerm));
+    console.log("filteredMovies", filteredMovies);
+    return filteredMovies;
   };
 
   render() {

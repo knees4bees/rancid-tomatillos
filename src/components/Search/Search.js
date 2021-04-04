@@ -30,14 +30,17 @@ class Search extends Component {
           <BiSearch className='nav-bar__search' />
         </button>
         <label>
+        {this.state.isActive && 
           <input 
-            className={this.state.isActive ? 'search__input--active' : 'search__input'}
+            className='search__input--active'
             name='searchTerm' 
             placeholder='Search by title'
             value={this.state.searchTerm}
             onChange={this.handleChange}
             onKeyDown={this.handleKeyDown}
+            autoFocus
           />
+        }
         </label>
       </div>
     )
