@@ -48,8 +48,8 @@ class MovieDetail extends Component {
       .then(data => data.videos.length && this.setState({trailerKey: data.videos[0].key}))
   }
 
-  openTrailer = () => {
-    this.setState({displayTrailer: true})
+  toggleTrailer = () => {
+    this.setState({displayTrailer: !this.state.displayTrailer})
   }
 
   render() {
@@ -90,7 +90,7 @@ class MovieDetail extends Component {
           {trailerKey &&
             <button 
               className="movie-card__details__btn" 
-              onClick={this.openTrailer}
+              onClick={this.toggleTrailer}
             >
               <BsPlayFill className="icon" />
               Watch Trailer
@@ -101,7 +101,7 @@ class MovieDetail extends Component {
           <img className="movie-backdrop__image" src={backdrop} alt={title} />
         </div>
       </main>
-      {this.state.displayTrailer && <Trailer trailerKey={trailerKey} />}
+      {this.state.displayTrailer && <Trailer trailerKey={trailerKey} toggleTrailer={this.toggleTrailer} />}
       </>
     );
   }
