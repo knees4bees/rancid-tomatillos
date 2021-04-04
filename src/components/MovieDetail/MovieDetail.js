@@ -30,7 +30,7 @@ class MovieDetail extends Component {
       })
       .then((movieData) => {
         const { movie } = movieData;
-        return this.setState({ 
+        this.setState({ 
           id: movie.id,
           averageRating: movie.average_rating,
           backdrop: movie.backdrop_path,
