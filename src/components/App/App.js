@@ -26,10 +26,10 @@ class App extends Component {
         return handleErrors(response);
       })
       .then((movieFetchData) => this.setState({ movies: movieFetchData.movies }))
-      .catch(() => this.setState({ fetchError: true }));
+      .catch(() => this.setState({ fetchError: true, filteredMovies: [] }));
   }
 
-  resetHome = () => this.setState({ fetchError: false, filteredMovies: [] });
+  resetHome = () => this.setState({ fetchError: false });
 
   search = (searchTerm) => {
     const searchTerms = searchTerm.toLowerCase().split(' ').filter(term => term);
@@ -40,11 +40,7 @@ class App extends Component {
       matches = [...matches, ...newMatches];
     })
     const finalMatches = [...new Set(matches)];
-    console.log(finalMatches);
-
     this.setState({ filteredMovies: finalMatches });
-    // this.setState({ filteredMovies: 'hello' });
-    console.log(this.state.filteredMovies);
   };
 
   render() {
@@ -52,7 +48,9 @@ class App extends Component {
 
     return (
       <div className="app">
-        <Nav resetHome={this.resetHome} search={this.search} />
+        <Route>
+          <Nav resetHome={this.resetHome} search={this.search} /> 
+        </Route>
         {fetchError && <Redirect to="/error" fetchStatus={fetchStatus} />}
         <Switch>
           <Route exact path="/" render={() => <Main movies={movies} />} />

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import './Search.css';
 import { BiSearch } from 'react-icons/bi';
 
 class Search extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       searchTerm: '',
       isActive: false
@@ -13,13 +13,12 @@ class Search extends Component {
   }
 
   handleClick = () => {
-    // this.state.searchTerm && this.props.search(this.state.searchTerm);
     if (this.state.searchTerm) {
       this.props.search(this.state.searchTerm);
-      // window.location = '/search';
+      this.props.history.push('/search')
     }
     this.setState({isActive: !this.state.isActive});
-    // this.clearInput();
+    this.clearInput();
   }
 
 
@@ -29,19 +28,12 @@ class Search extends Component {
 
   clearInput = () => this.setState({searchTerm: ''})
 
-  render() {
+  render() { 
     return (
       <div className="search">
-        {/* {this.state.searchTerm &&  */}
-          <NavLink to="/search" isActive={() => {this.state.searchTerm && true}} className='search__button' onClick={this.handleClick}>
-            <BiSearch className='nav-bar__search' />
-          </NavLink>
-        {/* } */}
-        {/* {!this.state.searchTerm && 
-          <button className='search__button' onClick={this.handleClick}>
-            <BiSearch className='nav-bar__search' />
-          </button>
-        } */}
+        <button   className='search__button' onClick={this.handleClick}>
+          <BiSearch className='nav-bar__search' />
+        </button>
         <label>
         {this.state.isActive && 
           <input 
@@ -60,4 +52,4 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default withRouter(Search);
