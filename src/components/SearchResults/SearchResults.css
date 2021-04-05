@@ -1,0 +1,13 @@
+.search-page {
+  margin-top:100px;
+}
+
+.search-page__header {
+  margin-left: 50px;
+}
+
+@media screen and (max-width: 600px) {
+  .search-page {
+    margin-top: 75px;
+  }
+}
