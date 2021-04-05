@@ -73,35 +73,35 @@ class MovieDetail extends Component {
 
     return (
       <>
-      <main className="movie-detail">
-        <section className="movie-card__details">
-          <img src={poster} className="movie-card__details__poster" />
-          <h2 className="movie-card__details__title">{title}</h2>
-          <h3 className="movie-card__details__date">{releaseDate}</h3>
-          <div
-            className="movie-card__details__rating fa fa-star"
-            style={ratingStyle}
-          />
-          <br />
-          <p className="movie-card__details__tagline">{tagline}</p>
-          <p className="movie-card__details__run-time">{runtime} min</p>
-          <p className="movie-card__details__genre">{genres}</p>
-          <p className="movie-card__details__overview">{overview}</p>
-          {trailerKey &&
-            <button 
-              className="movie-card__details__btn" 
-              onClick={this.toggleTrailer}
-            >
-              <BsPlayFill className="icon" />
-              Watch Trailer
-            </button>
-          }
-        </section>
-        <div className="movie-backdrop">
-          <img className="movie-backdrop__image" src={backdrop} alt={title} />
-        </div>
-      </main>
-      {this.state.displayTrailer && <Trailer trailerKey={trailerKey} toggleTrailer={this.toggleTrailer} />}
+        <main className="movie-detail">
+          <section className="movie-card__details">
+            <img src={poster} className="movie-card__details__poster" />
+            <h2 className="movie-card__details__title">{title}</h2>
+            <h3 className="movie-card__details__date">{releaseDate}</h3>
+            <div
+              className="movie-card__details__rating fa fa-star"
+              style={ratingStyle}
+            />
+            <br />
+            <p className="movie-card__details__tagline">{tagline}</p>
+            <p className="movie-card__details__run-time">{runtime} min</p>
+            <p className="movie-card__details__genre">{genres}</p>
+            <p className="movie-card__details__overview">{overview}</p>
+            {trailerKey &&
+              <button 
+                className="movie-card__details__btn" 
+                onClick={this.toggleTrailer}
+              >
+                <BsPlayFill className="icon" />
+                Watch Trailer
+              </button>
+            }
+          </section>
+          <div className="movie-backdrop">
+            <img className="movie-backdrop__image" src={backdrop} alt={title} />
+          </div>
+        </main>
+        {this.state.displayTrailer && <Trailer trailerKey={trailerKey} toggleTrailer={this.toggleTrailer} />}
       </>
     );
   }

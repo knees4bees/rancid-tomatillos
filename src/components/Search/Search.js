@@ -31,12 +31,13 @@ class Search extends Component {
   render() { 
     return (
       <div className="search">
-        <label className='search-label'>
+        <label className="search-label">
         {this.state.isActive && 
           <input 
-            className='search__input--active'
-            name='searchTerm' 
-            placeholder='Search by title'
+            type="text"
+            className="search__input--active"
+            name="searchTerm" 
+            placeholder="Search by title"
             value={this.state.searchTerm}
             onChange={this.handleChange}
             onKeyDown={this.handleKeyDown}
@@ -46,7 +47,7 @@ class Search extends Component {
         </label>
         <button className='search__button' onClick={this.handleClick} aria-label="search">
           <NavLink to={this.state.searchTerm ? "/search" : window.location.pathname} aria-label="search icon">
-            <BiSearch className='nav-bar__search' />
+            <BiSearch className="nav-bar__search" />
           </NavLink>
         </button>
       </div>
