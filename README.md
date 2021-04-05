@@ -1,7 +1,7 @@
 # Rancid Tomatillos
 
 ## Contributors
-* [Steven Mancine](https://github.com/itsnameissteven)
+* [Steven M](https://github.com/itsnameissteven)
 * [Katie B](https://github.com/knees4bees)
 
 ## Deployed Site 
@@ -82,13 +82,15 @@ Responsive design was considered for desktop, tablet and mobile view.
 - ![Node](https://img.shields.io/badge/node.js%20-%2343853D.svg?&style=for-the-badge&logo=node.js&logoColor=white)
 
 ## Contact
-[<img src="https://img.shields.io/badge/LinkedIn-steven--mancine-informational?style=for-the-badge&labelColor=black&logo=linkedin&logoColor=0077b5&&color=0FBBD6"/>][linkedin1]
+[<img src="https://img.shields.io/badge/LinkedIn-steven-informational?style=for-the-badge&labelColor=black&logo=linkedin&logoColor=0077b5&&color=0FBBD6"/>][linkedin1]
 [<img src="https://img.shields.io/badge/Github-itsnameissteven-informational?style=for-the-badge&labelColor=black&logo=github&color=8B0BD5"/>][github1]
 <!--Personal Definitions -->
 [linkedin1]: https://www.linkedin.com/in/steven-mancine-13509521/
 [github1]: https://github.com/itsnameissteven
 
 <!-- TODO add link to Katie's LinkedIn (or decide not to) -->
+[<img src="https://img.shields.io/badge/LinkedIn-katie-informational?style=for-the-badge&labelColor=black&logo=linkedin&logoColor=0077b5&&color=0FBBD6"/>][linkedin2]
 [<img src="https://img.shields.io/badge/Github-knees4bees-informational?style=for-the-badge&labelColor=black&logo=github&color=8B0BD5"/>][github2]
 <!--Personal Definitions -->
+[linkedin2]: https://www.linkedin.com/in/katie-b-dev/
 [github2]: https://github.com/knees4bees
