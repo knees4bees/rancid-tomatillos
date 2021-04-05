@@ -53,7 +53,6 @@ When a user clicks on the search icon from any page, a nicely animated search bo
 On a movie detail page, if a trailer for that movie is available, there will be a Watch Trailer button that the user can click. A pop-up containing the embedded trailer appears on the page.
 ![TODO add gif](TODO add link to gif)
 ## Accessibility
-<!-- TODO use this section? -->
 The app is fully accessible with the use of a keyboard. Use the tab key to travel to each relevant section and use enter to click.
 
 ## Responsive Design 
@@ -88,7 +87,6 @@ Responsive design was considered for desktop, tablet and mobile view.
 [linkedin1]: https://www.linkedin.com/in/steven-mancine-13509521/
 [github1]: https://github.com/itsnameissteven
 
-<!-- TODO add link to Katie's LinkedIn (or decide not to) -->
 [<img src="https://img.shields.io/badge/LinkedIn-katie-informational?style=for-the-badge&labelColor=black&logo=linkedin&logoColor=0077b5&&color=0FBBD6"/>][linkedin2]
 [<img src="https://img.shields.io/badge/Github-knees4bees-informational?style=for-the-badge&labelColor=black&logo=github&color=8B0BD5"/>][github2]
 <!--Personal Definitions -->
