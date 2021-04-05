@@ -12,8 +12,8 @@ describe('Rancid Tomatillos', () => {
   it('Should see a navigation bar', () => {
     cy.get('nav h1')
       .contains('Rancid Tomatillos')
-      .get('img')
-      .should('have.class', 'nav-bar__search')
+      .get('div')
+      .should('have.class', 'search')
   });
 
   it('Should not see a home button', () => {
@@ -73,8 +73,8 @@ describe('Movie details page', () => {
   it('Should see a navigation bar', () => {
     cy.get('nav')
       .contains('Rancid Tomatillos')
-      .get('img')
-      .should('have.class', 'nav-bar__search')
+      .get('div')
+      .should('have.class', 'search')
       .get('img')
       .should('have.class', 'nav-bar__home--img')
   });
