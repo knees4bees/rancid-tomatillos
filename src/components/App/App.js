@@ -40,7 +40,7 @@ class App extends Component {
       matches = [...matches, ...newMatches];
     })
     const finalMatches = [...new Set(matches)];
-    this.setState({ filteredMovies: finalMatches });
+    this.setState({ filteredMovies: finalMatches});
   };
 
   render() {
@@ -48,9 +48,7 @@ class App extends Component {
 
     return (
       <div className="app">
-        <Route>
-          <Nav resetHome={this.resetHome} search={this.search} /> 
-        </Route>
+        <Nav resetHome={this.resetHome} search={this.search} /> 
         {fetchError && <Redirect to="/error" fetchStatus={fetchStatus} />}
         <Switch>
           <Route exact path="/" render={() => <Main movies={movies} />} />
