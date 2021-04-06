@@ -45,7 +45,7 @@ class MovieDetail extends Component {
       })
       .catch(() => this.props.updateFetchStatus('fetchError', true));
     getTrailerKey(id)
-      .then(data => data.videos.length && this.setState({ trailerKey: data.videos[0].key }));
+      .then(data => data.videos?.length && this.setState({ trailerKey: data.videos[0].key }));
   }
 
   toggleTrailer = () => {
