@@ -19,6 +19,7 @@
   - [Watch Trailer](#watch-trailer)
 - [Accessibility](#accessibility)
 - [Responsive Design](#responsive-design)
+- [Error Handling](#error-handling)
 - [Future Considerations](#future-considerations)
 - [Technologies Used](#technologies-used)
 - [Contact](#contact)
@@ -57,6 +58,10 @@ The app is fully accessible with the use of a keyboard. Use the tab key to trave
 Responsive design was considered for desktop, tablet and mobile view.
 ![ResponsiveDesign](https://user-images.githubusercontent.com/72312636/113642210-8942e980-963c-11eb-8b74-65d014b79997.gif)
 ![ResponsiveDesign2](https://user-images.githubusercontent.com/72312636/113642287-b394a700-963c-11eb-8d5e-c04fd6782e0d.gif)
+
+## Error Handling
+Error handling was built to give the user feedback if a bad response is returned from api calls.
+<img width="1439" alt="Screen Shot 2021-04-05 at 6 43 07 PM" src="https://user-images.githubusercontent.com/72312636/113643388-77af1100-963f-11eb-87a0-be83883644e3.png">
 
 ## Future Considerations
 * Refactor search routing so that a unique URL is generated for each search query.
