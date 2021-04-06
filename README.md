@@ -37,27 +37,26 @@ Rancid Tomatillos is a fictional web app that allows users to browse movies and 
 ## Features
 ### Home Page
 Upon visiting the home page, a user sees a featured movie and thumbnail images of all movies. The user can click on a movie image to see details about that movie or click on the search icon to search for a movie by title.
-<img width="1500" alt="TODO add alt text" src="TODO add path to image">
-![TODO add gif](TODO add link to gif)
+![landing_page](https://user-images.githubusercontent.com/72312636/113641447-db830b00-963a-11eb-96a7-38f5dbbe0ed8.gif)
 
 ### Movie Details
 After selecting a movie from the home page or from the search results page, a user is directed to a new URL and details about the selected movie are displayed. The user can click on a button to watch the trailer for that movie without leaving the app.
-<img width="1500" alt="TODO add alt text" src="TODO add path to image">
-![TODO add gif](TODO add link to gif)
+<img width="1415" alt="Movie details" src="https://user-images.githubusercontent.com/72312636/113641591-2d2b9580-963b-11eb-8db5-67ebded89bc4.png">
 
 ### Search 
 When a user clicks on the search icon from any page, a nicely animated search box opens up in which the user can type part of a movie's title. When the search button is clicked, the user is redirected to a new URL and thumbnails for all matching movies are displayed.
-![TODO add gif](TODO add link to gif)
+![search](https://user-images.githubusercontent.com/72312636/113642352-d8891a00-963c-11eb-95d0-b9e690ae864a.gif)
 
 ### Watch Trailer
 On a movie detail page, if a trailer for that movie is available, there will be a Watch Trailer button that the user can click. A pop-up containing the embedded trailer appears on the page.
-![TODO add gif](TODO add link to gif)
+![movie_trailer](https://user-images.githubusercontent.com/72312636/113641484-e9389080-963a-11eb-9f34-bbeab9b79a1d.gif)
 ## Accessibility
 The app is fully accessible with the use of a keyboard. Use the tab key to travel to each relevant section and use enter to click.
 
 ## Responsive Design 
 Responsive design was considered for desktop, tablet and mobile view.
-![TODO add gif](TODO add link to gif)
+![ResponsiveDesign](https://user-images.githubusercontent.com/72312636/113642210-8942e980-963c-11eb-8b74-65d014b79997.gif)
+![ResponsiveDesign2](https://user-images.githubusercontent.com/72312636/113642287-b394a700-963c-11eb-8d5e-c04fd6782e0d.gif)
 
 ## Future Considerations
 * Refactor search routing so that a unique URL is generated for each search query.
