@@ -4,9 +4,8 @@ export const getSelectedMovie = (id) => fetch(`https://rancid-tomatillos.herokua
 
 export const getTrailerKey = (id) => {
   return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`)
-    .then(response => response.json())
-}
-
+    .then((response) => response.json());
+};
 
 export const handleErrors = (response) => {
   if (!response.ok) {
