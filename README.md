@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+# Rancid Tomatillos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Contributors
+* [Steven M](https://github.com/itsnameissteven)
+* [Katie B](https://github.com/knees4bees)
 
-## Available Scripts
+## Deployed Site 
+[Rancid Tomatillos](URL here)
 
-In the project directory, you can run:
 
-### `npm start`
+## Table of Contents 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [About the Project](#about-the-project)
+- [Project Goals](#project-goals)
+- [Features](#features)
+  - [Home Page](#home-page)
+  - [Movie Details](#movie-details)
+  - [Search](#search)
+  - [Watch Trailer](#watch-trailer)
+- [Accessibility](#accessibility)
+- [Responsive Design](#responsive-design)
+- [Future Considerations](#future-considerations)
+- [Technologies Used](#technologies-used)
+- [Contact](#contact)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## About The Project
+Rancid Tomatillos is a fictional web app that allows users to browse movies and view their details. Design inspirations were grabbed from HBO Max and Netflix.
 
-### `npm test`
+## Project Goals 
+1. Learn how to implement React.
+2. Use React Router to conditionally render components.
+3. Use Cypress to test React components and asynchronous JS.
+4. Make the app completely accessible by keyboard.
+5. Implement responsive design for cross-screen compatibility.
+6. Add extra features such as embedded YouTube videos and animated search.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
+### Home Page
+Upon visiting the home page, a user sees a featured movie and thumbnail images of all movies. The user can click on a movie image to see details about that movie or click on the search icon to search for a movie by title.
+<img width="1500" alt="TODO add alt text" src="TODO add path to image">
+![TODO add gif](TODO add link to gif)
 
-### `npm run build`
+### Movie Details
+After selecting a movie from the home page or from the search results page, a user is directed to a new URL and details about the selected movie are displayed. The user can click on a button to watch the trailer for that movie without leaving the app.
+<img width="1500" alt="TODO add alt text" src="TODO add path to image">
+![TODO add gif](TODO add link to gif)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Search 
+When a user clicks on the search icon from any page, a nicely animated search box opens up in which the user can type part of a movie's title. When the search button is clicked, the user is redirected to a new URL and thumbnails for all matching movies are displayed.
+![TODO add gif](TODO add link to gif)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Watch Trailer
+On a movie detail page, if a trailer for that movie is available, there will be a Watch Trailer button that the user can click. A pop-up containing the embedded trailer appears on the page.
+![TODO add gif](TODO add link to gif)
+## Accessibility
+The app is fully accessible with the use of a keyboard. Use the tab key to travel to each relevant section and use enter to click.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Responsive Design 
+Responsive design was considered for desktop, tablet and mobile view.
+![TODO add gif](TODO add link to gif)
 
-### `npm run eject`
+## Future Considerations
+* Refactor search routing so that a unique URL is generated for each search query.
+* Display a multi-item carousel for each genre below the main carousel on the home page.
+* Add more data cleaning so that a movie with missing or irrelevant details is handled gracefully.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Technologies Used
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- ![React](https://camo.githubusercontent.com/4e4a3b5c3e9c00501ec866e2f2466c5a6032f838aca5f2cf3b14450e39e8a2f0/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f72656163742532302d2532333230323332612e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d7265616374266c6f676f436f6c6f723d253233363144414642)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- ![ReactRouter](https://camo.githubusercontent.com/4f9d20f3a284d2f6634282f61f82a62e99ee9906537dc9859decfdc9efbb51ec/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f52656163745f526f757465722d4341343234353f7374796c653d666f722d7468652d6261646765266c6f676f3d72656163742d726f75746572266c6f676f436f6c6f723d7768697465)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- [![JavaScript](https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)](https://www.javascript.com/)
 
-## Learn More
+- ![HTML5](https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- ![Webpack](https://img.shields.io/badge/webpack%20-%238DD6F9.svg?&style=for-the-badge&logo=webpack&logoColor=black)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- ![Cypress](https://img.shields.io/badge/cypress-04C38E.svg?&style=for-the-badge&logo=cypress&logoColor=white)
 
-### Code Splitting
+- ![Node](https://img.shields.io/badge/node.js%20-%2343853D.svg?&style=for-the-badge&logo=node.js&logoColor=white)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Contact
+[<img src="https://img.shields.io/badge/LinkedIn-steven-informational?style=for-the-badge&labelColor=black&logo=linkedin&logoColor=0077b5&&color=0FBBD6"/>][linkedin1]
+[<img src="https://img.shields.io/badge/Github-itsnameissteven-informational?style=for-the-badge&labelColor=black&logo=github&color=8B0BD5"/>][github1]
+<!--Personal Definitions -->
+[linkedin1]: https://www.linkedin.com/in/steven-mancine-13509521/
+[github1]: https://github.com/itsnameissteven
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[<img src="https://img.shields.io/badge/LinkedIn-katie-informational?style=for-the-badge&labelColor=black&logo=linkedin&logoColor=0077b5&&color=0FBBD6"/>][linkedin2]
+[<img src="https://img.shields.io/badge/Github-knees4bees-informational?style=for-the-badge&labelColor=black&logo=github&color=8B0BD5"/>][github2]
+<!--Personal Definitions -->
+[linkedin2]: https://www.linkedin.com/in/katie-b-dev/
+[github2]: https://github.com/knees4bees
