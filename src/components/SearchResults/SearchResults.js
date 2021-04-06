@@ -1,6 +1,6 @@
 import React from 'react';
 import Movies from '../Movies/Movies';
-import './SearchResults.css'
+import './SearchResults.css';
 
 const SearchResults = ({ movies }) => {
   return (

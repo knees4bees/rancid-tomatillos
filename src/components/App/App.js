@@ -32,15 +32,15 @@ class App extends Component {
   resetHome = () => this.setState({ fetchError: false });
 
   search = (searchTerm) => {
-    const searchTerms = searchTerm.toLowerCase().split(' ').filter(term => term);
+    const searchTerms = searchTerm.toLowerCase().split(' ').filter((term) => term);
 
     let matches = [];
-    searchTerms.forEach(term => {
-      const newMatches = this.state.movies.filter(movie => movie.title.toLowerCase().includes(term));
+    searchTerms.forEach((term) => {
+      const newMatches = this.state.movies.filter((movie) => movie.title.toLowerCase().includes(term));
       matches = [...matches, ...newMatches];
-    })
+    });
     const finalMatches = [...new Set(matches)];
-    this.setState({ filteredMovies: finalMatches});
+    this.setState({ filteredMovies: finalMatches });
   };
 
   render() {
@@ -48,7 +48,7 @@ class App extends Component {
 
     return (
       <div className="app">
-        <Nav resetHome={this.resetHome} search={this.search} /> 
+        <Nav resetHome={this.resetHome} search={this.search} />
         {fetchError && <Redirect to="/error" fetchStatus={fetchStatus} />}
         <Switch>
           <Route exact path="/" render={() => <Main movies={movies} />} />
