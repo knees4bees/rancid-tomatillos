@@ -51,6 +51,7 @@ When a user clicks on the search icon from any page, a nicely animated search bo
 ### Watch Trailer
 On a movie detail page, if a trailer for that movie is available, there will be a Watch Trailer button that the user can click. A pop-up containing the embedded trailer appears on the page.
 ![movie_trailer](https://user-images.githubusercontent.com/72312636/113641484-e9389080-963a-11eb-9f34-bbeab9b79a1d.gif)
+
 ## Accessibility
 The app is fully accessible with the use of a keyboard. Use the tab key to travel to each relevant section and use enter to click.
 
