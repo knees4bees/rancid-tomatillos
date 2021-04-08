@@ -82,6 +82,14 @@
     margin: 60px 0 0 0; 
     width: 90vw
   }
+  @keyframes open {
+  0% {
+    width:42px
+  }
+  100% {
+    width: 90vw
+  }
+}
 }
 
 

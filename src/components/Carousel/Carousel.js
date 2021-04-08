@@ -23,7 +23,7 @@ const Carousel = ({ movies }) => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 2000,
+    speed: 600,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplaySpeed: 10000,
