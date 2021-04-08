@@ -52,7 +52,8 @@ class App extends Component {
         {fetchError && <Redirect to="/error" fetchStatus={fetchStatus} />}
         <Switch>
           <Route exact path="/" render={() => <Main movies={movies} />} />
-          <Redirect exact from="/movies" to="/" />
+          {/* to gently redirect user who naively navigates to /movies */}
+          <Redirect exact from="/movies" to="/" /> 
           <Route exact path="/search" render={() => <SearchResults movies={filteredMovies} />} />
           <Route
             exact
