@@ -85,8 +85,7 @@
 
 .movie-card__details__overview {
   display: block;
-  width: 115%;
-  max-width: 600px;
+  width: 100%;
   clear:both;
   color: #d0e2f7;
   font-size: 17px;
@@ -114,7 +113,7 @@
   justify-content: center;
   font-size: 18px;
   outline:none; /*restyle outline?*/
-  transition: all 150ms ease-in;
+  transition: background-color 150ms ease-in;
 }
 
 .movie-card__details__btn:hover {
@@ -123,9 +122,18 @@
   color:black;
 }
 
+.movie-card__details__btn:focus {
+  box-shadow: 0 0 0 2px rgb(76, 13, 221);
+}
+
 .icon {
   margin-right: 5px;
   font-size: 22px;
+}
+@media screen and (max-width: 1400px) {
+  .movie-card__details__overview {
+    width: 144%
+  }
 }
 
 @media screen and (max-width: 1200px) {
@@ -154,6 +162,10 @@
   .movie-detail {
     margin-top: 100px;
     width:98%
+  }
+
+  .movie-card__details__overview {
+    width: 100%
   }
 
   .movie-card__details {

@@ -53,7 +53,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={() => <Main movies={movies} />} />
           {/* to gently redirect user who naively navigates to /movies */}
-          <Redirect exact from="/movies" to="/" /> 
+          <Redirect exact from="/movies" to="/" />
           <Route exact path="/search" render={() => <SearchResults movies={filteredMovies} />} />
           <Route
             exact
