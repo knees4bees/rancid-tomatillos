@@ -38,7 +38,7 @@
 .movie-card__details__poster {
   height:150px;
   float: left;
-  margin: 0 10px 20px 0;
+  margin: 8px 10px 20px 0;
   box-shadow: 1px 3px 8px 0 rgba(161, 161, 161, 0.2), 0 3px 8px 0 rgba(161, 161, 161, 0.17);
 }
 
@@ -167,17 +167,20 @@
   }
   .movie-card__details__run-time {
     position: absolute;
-    top: 118px;
+    top: 127px;
     left: 110px; 
     vertical-align: baseline;
     margin: unset
   }
+
   .movie-info{
     position: relative;
   }
+
   .movie-card__details__poster {
     vertical-align: baseline;
   }
+  
   .movie-card__details__btn {
     bottom:-75px;
   }
