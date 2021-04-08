@@ -155,4 +155,30 @@
   .movie-card__details {
     width: 100%;
   }
+
+  .movie-card__details__genre {
+    width: 100%;
+    margin: 0 0 10px 0;
+    font-weight: bold;
+  }
+
+  .movie-card__details__title {
+    width: unset;
+  }
+  .movie-card__details__run-time {
+    position: absolute;
+    top: 118px;
+    left: 110px; 
+    vertical-align: baseline;
+    margin: unset
+  }
+  .movie-info{
+    position: relative;
+  }
+  .movie-card__details__poster {
+    vertical-align: baseline;
+  }
+  .movie-card__details__btn {
+    bottom:-75px;
+  }
 }
